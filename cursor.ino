@@ -106,36 +106,30 @@ void loop() {
   Serial.print(heading);
   Serial.println(" degrees");
   
-  // Only proceed with navigation if we have valid GPS data
+  // Calculate desired heading to target if GPS is valid
+  float target_heading = 0.0;
   if (gpsValid) {
-    // Calculate desired heading to target
-    float target_heading = calculateTargetHeading();
-    
-    // Calculate heading error
-    float heading_error = normalizeAngle(target_heading - heading);
-    
-    // Calculate optimal sail angle based on wind
-    float optimal_sail = calculateSailAngle(SIMULATED_WIND_DIRECTION);
-    
-    // Calculate rudder angle using PD control
-    float rudder_angle = calculateRudderAngle(heading_error);
-    
-    // Apply controls to servos with explicit mapping
-    setServoAngles(optimal_sail, rudder_angle);
-    
-    // Print sensor data and debug information at regular intervals
-    if (millis() - lastLogTime >= LOG_INTERVAL) {
-      printSensorData();
-      printNavigationData(target_heading, heading_error, optimal_sail, rudder_angle);
-      printActuatorData();
-      lastLogTime = millis();
-    }
-  } else {
-    if (millis() - lastLogTime >= LOG_INTERVAL) {
-      Serial.println("\n[WARNING] No valid GPS data");
-      printSensorData();
-      lastLogTime = millis();
-    }
+    target_heading = calculateTargetHeading();
+  }
+  
+  // Calculate heading error
+  float heading_error = normalizeAngle(target_heading - heading);
+  
+  // Calculate optimal sail angle based on wind
+  float optimal_sail = calculateSailAngle(SIMULATED_WIND_DIRECTION);
+  
+  // Calculate rudder angle using PD control
+  float rudder_angle = calculateRudderAngle(heading_error);
+  
+  // Apply controls to servos with explicit mapping
+  setServoAngles(optimal_sail, rudder_angle);
+  
+  // Print sensor data and debug information at regular intervals
+  if (millis() - lastLogTime >= LOG_INTERVAL) {
+    printSensorData();
+    printNavigationData(target_heading, heading_error, optimal_sail, rudder_angle);
+    printActuatorData();
+    lastLogTime = millis();
   }
   
   delay(100); // Update 10 times per second
@@ -167,7 +161,7 @@ void updateGPS() {
   // Check GPS timeout
   if (millis() - lastValidGPS > GPS_TIMEOUT) {
     gpsValid = false;
-    Serial.println("[ERROR] GPS timeout");
+    // Serial.println("[ERROR] GPS timeout");
   }
 }
 
@@ -244,51 +238,62 @@ void printSensorData() {
   Serial.println("\n[SENSOR DATA]");
   
   // GPS Data
-  Serial.println("GPS:");
-  Serial.print("  Status: "); Serial.println(gpsValid ? "VALID" : "NO FIX");
+  Serial.print("GPS: ");
+  Serial.print(gpsValid ? "VALID" : "NO FIX");
   if (gpsValid) {
-    Serial.print("  Position: "); Serial.print(current_lat, 6); 
-    Serial.print(", "); Serial.println(current_lon, 6);
-    Serial.print("  Satellites: "); Serial.println(gps.satellites.value());
-    Serial.print("  HDOP: "); Serial.println(gps.hdop.value());
-    Serial.print("  Speed(knots): "); Serial.println(gps.speed.knots());
-    Serial.print("  Course(deg): "); Serial.println(gps.course.deg());
+    Serial.print(" | Pos: "); Serial.print(current_lat, 6); 
+    Serial.print(", "); Serial.print(current_lon, 6);
+    Serial.print(" | Sats: "); Serial.print(gps.satellites.value());
+    Serial.print(" | HDOP: "); Serial.print(gps.hdop.value());
+    Serial.print(" | Speed: "); Serial.print(gps.speed.knots());
+    Serial.print(" knots | Course: "); Serial.print(gps.course.deg());
+    Serial.println("°");
+  } else {
+    Serial.println();
   }
   
   // Compass Data
-  Serial.println("Compass (CMPS12):");
-  Serial.print("  Status: "); Serial.println(compassValid ? "VALID" : "ERROR");
-  Serial.print("  Raw Angle16: 0x"); Serial.println(angle16, HEX);
-  Serial.print("  High byte: 0x"); Serial.println(high_byte, HEX);
-  Serial.print("  Low byte: 0x"); Serial.println(low_byte, HEX);
-  Serial.print("  Heading: "); Serial.print(angle16 / 10.0);
+  Serial.print("Compass: ");
+  Serial.print(compassValid ? "VALID" : "ERROR");
+  // Serial.print(" | Raw: 0x"); Serial.print(angle16, HEX);
+  // Serial.print(" (H:0x"); Serial.print(high_byte, HEX);
+  // Serial.print(" L:0x"); Serial.print(low_byte, HEX);
+  Serial.print(") | Heading: "); Serial.print(angle16 / 10.0);
   Serial.println("°");
   
-  // Wind Data (Simulated)
-  Serial.println("Wind (Simulated):");
-  Serial.print("  Direction: "); Serial.print(SIMULATED_WIND_DIRECTION);
-  Serial.println("°");
-  Serial.print("  Speed: "); Serial.print(SIMULATED_WIND_SPEED);
-  Serial.println(" knots");
+  // // Wind Data (Simulated)
+  // Serial.print("Wind: ");
+  // Serial.print(SIMULATED_WIND_DIRECTION);
+  // Serial.print("° | Speed: "); Serial.print(SIMULATED_WIND_SPEED);
+  // Serial.println(" knots");
 }
 
-void printNavigationData(float target_heading, float heading_error, 
-                        float optimal_sail, float rudder_angle) {
+void printNavigationData(float target_heading, float heading_error, float optimal_sail, float rudder_angle) {
   Serial.println("\n[NAVIGATION DATA]");
-  Serial.print("Target Heading: "); Serial.print(target_heading); Serial.println("°");
-  Serial.print("Heading Error: "); Serial.print(heading_error); Serial.println("°");
+  Serial.print("Target: "); Serial.print(target_heading);
+  Serial.print("° | Current: "); Serial.print(current_heading);
+  Serial.print("° | Error: "); Serial.print(heading_error);
+  Serial.print("° | Rudder: "); Serial.print(rudder_angle);
+  Serial.print("° | Sail: "); Serial.print(optimal_sail);
+  Serial.println("°");
   
-  // Calculate distance to target
-  float dist = TinyGPSPlus::distanceBetween(
+  // Calculate distances
+  float distance_to_target = TinyGPSPlus::distanceBetween(
     current_lat, current_lon,
     lat_ref2, lon_ref2);
+    
+  float distance_to_line = TinyGPSPlus::distanceBetween(
+    current_lat, current_lon,
+    lat_ref1, lon_ref1);
   
-  Serial.print("Distance to Target: "); Serial.print(dist); Serial.println(" m");
+  Serial.print("Distance to line: "); Serial.print(distance_to_line);
+  Serial.print("m | Distance to target: "); Serial.print(distance_to_target);
+  Serial.println("m");
 }
 
 void printActuatorData() {
-  Serial.println("\n[ACTUATOR STATUS]");
-  Serial.print("Sail Servo: Channel "); Serial.println(SERVO1_CHANNEL);
-  Serial.print("Rudder Servo: Channel "); Serial.println(SERVO2_CHANNEL);
-  Serial.println("----------------------------------------");
+  Serial.println("\n[ACTUATOR DATA]");
+  Serial.print("Rudder: "); Serial.print(rudderAngle);
+  Serial.print("° | Sail: "); Serial.print(sailAngle);
+  Serial.println("°");
 } 
