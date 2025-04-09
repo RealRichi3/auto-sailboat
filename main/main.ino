@@ -7,9 +7,16 @@
 #define CMPS_GET_ROLL 0x15
 #define CMPS_CALIBRATION_STATUS 0x24
 
+// Compass Constants
+#define COMPASS_TIMEOUT 5000  // milliseconds
+#define MIN_CALIBRATION_LEVEL 2  // Require at least "Mostly Calibrated"
+#define COMPASS_READ_INTERVAL 100  // milliseconds between readings
+
 // Timing
 const unsigned long LOG_INTERVAL = 1000; // Log every second
 unsigned long lastLogTime = 0;
+unsigned long lastValidCompassTime = 0;
+unsigned long lastCompassReadTime = 0;
 
 // Data storage
 struct CMPS12Data {
@@ -18,7 +25,15 @@ struct CMPS12Data {
     float roll;         // -90 to +90 degrees
     uint8_t calibration; // 0-3 (3 is fully calibrated)
     bool valid;         // Data validity flag
+    bool isCalibrated;  // Whether compass meets minimum calibration level
 } cmpsData;
+
+// Navigation data
+struct NavigationData {
+    float targetHeading;    // Desired heading in degrees
+    float headingError;     // Difference between current and target heading
+    bool compassValid;      // Overall compass system status
+} navData;
 
 void setup() {
     // Initialize Serial for logging
@@ -28,15 +43,31 @@ void setup() {
     // Initialize CMPS12 on Serial3
     Serial3.begin(9600);
     
+    // Initialize compass data
+    cmpsData.heading = 0.0;
+    cmpsData.pitch = 0.0;
+    cmpsData.roll = 0.0;
+    cmpsData.calibration = 0;
+    cmpsData.valid = false;
+    cmpsData.isCalibrated = false;
+    
+    // Initialize navigation data
+    navData.targetHeading = 0.0;
+    navData.headingError = 0.0;
+    navData.compassValid = false;
+    
     // Print header
-    Serial.println("\nCMPS12 Data Logger");
-    Serial.println("Time(ms) | Heading(°) | Pitch(°) | Roll(°) | Calibration");
-    Serial.println("--------------------------------------------------------");
+    Serial.println("\nAutonomous Sailboat - Compass System");
+    Serial.println("Time(ms) | Heading(°) | Pitch(°) | Roll(°) | Calibration | Status");
+    Serial.println("------------------------------------------------------------------");
 }
 
 void loop() {
-    // Read all CMPS12 data
-    readCMPS12Data();
+    // Read compass data at appropriate interval
+    if (millis() - lastCompassReadTime >= COMPASS_READ_INTERVAL) {
+        readCMPS12Data();
+        lastCompassReadTime = millis();
+    }
     
     // Log data at specified interval
     if (millis() - lastLogTime >= LOG_INTERVAL) {
@@ -44,7 +75,7 @@ void loop() {
         lastLogTime = millis();
     }
     
-    delay(100); // Small delay to prevent overwhelming the sensor
+    delay(10); // Small delay to prevent overwhelming the system
 }
 
 void readCMPS12Data() {
@@ -72,6 +103,38 @@ void readCMPS12Data() {
     Serial3.write(CMPS_CALIBRATION_STATUS);
     while (Serial3.available() < 1); // Wait for data
     cmpsData.calibration = Serial3.read();
+    
+    // Update compass validity and calibration status
+    if (cmpsData.valid && cmpsData.calibration >= MIN_CALIBRATION_LEVEL) {
+        lastValidCompassTime = millis();
+        cmpsData.isCalibrated = true;
+    } else {
+        cmpsData.isCalibrated = false;
+    }
+    
+    // Check for compass timeout
+    if (millis() - lastValidCompassTime > COMPASS_TIMEOUT) {
+        cmpsData.valid = false;
+    }
+}
+
+void updateNavigation() {
+    if (!navData.compassValid) {
+        return;
+    }
+    
+    // Calculate heading error (normalized to -180 to 180 degrees)
+    navData.headingError = navData.targetHeading - cmpsData.heading;
+    if (navData.headingError > 180.0) {
+        navData.headingError -= 360.0;
+    } else if (navData.headingError < -180.0) {
+        navData.headingError += 360.0;
+    }
+    
+    // Check for compass timeout
+    if (millis() - lastValidCompassTime > COMPASS_TIMEOUT) {
+        navData.compassValid = false;
+    }
 }
 
 void logData() {
@@ -79,12 +142,7 @@ void logData() {
     Serial.print(millis());
     Serial.print(" | ");
     
-    if (!cmpsData.valid) {
-        Serial.println("Error reading CMPS12 data!");
-        return;
-    }
-    
-    // Print heading with 1 decimal place
+    // Print current heading
     Serial.print(cmpsData.heading, 1);
     Serial.print("° | ");
     
@@ -98,22 +156,32 @@ void logData() {
     Serial.print(cmpsData.roll, 1);
     Serial.print("° | ");
     
-    // Print calibration status with description
+    // Print calibration status
     switch(cmpsData.calibration) {
         case 0:
-            Serial.println("Not Calibrated");
+            Serial.print("Not Calibrated");
             break;
         case 1:
-            Serial.println("Partially Calibrated");
+            Serial.print("Partial");
             break;
         case 2:
-            Serial.println("Mostly Calibrated");
+            Serial.print("Mostly");
             break;
         case 3:
-            Serial.println("Fully Calibrated");
+            Serial.print("Fully");
             break;
         default:
-            Serial.println("Unknown");
+            Serial.print("Unknown");
             break;
+    }
+    Serial.print(" | ");
+    
+    // Print system status
+    if (!cmpsData.valid) {
+        Serial.println("COMPASS ERROR");
+    } else if (!cmpsData.isCalibrated) {
+        Serial.println("NEEDS CALIBRATION");
+    } else {
+        Serial.println("OK");
     }
 } 
