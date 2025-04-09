@@ -7,16 +7,26 @@
 #define CMPS_GET_ROLL 0x15
 #define CMPS_CALIBRATION_STATUS 0x24
 
+// Wind Sensor Pins
+#define WIND_SPEED_PIN 2       // Digital pin for Davis anemometer pulses
+#define WIND_DIRECTION_PIN A15  // Analog pin for Davis wind vane
+
 // Compass Constants
 #define COMPASS_TIMEOUT 5000  // milliseconds
 #define MIN_CALIBRATION_LEVEL 2  // Require at least "Mostly Calibrated"
 #define COMPASS_READ_INTERVAL 100  // milliseconds between readings
+
+// Wind Constants
+#define WIND_SPEED_INTERVAL 5000  // 5 seconds between wind speed calculations
+#define WIND_DEBOUNCE_TIME 100    // 100ms debounce for anemometer
+#define WIND_SPEED_CALIBRATION 2.4 // Calibration factor for wind speed (mph per pulse)
 
 // Timing
 const unsigned long LOG_INTERVAL = 1000; // Log every second
 unsigned long lastLogTime = 0;
 unsigned long lastValidCompassTime = 0;
 unsigned long lastCompassReadTime = 0;
+unsigned long lastWindSpeedTime = 0;
 
 // Data storage
 struct CMPS12Data {
@@ -28,12 +38,14 @@ struct CMPS12Data {
     bool isCalibrated;  // Whether compass meets minimum calibration level
 } cmpsData;
 
-// Navigation data
-struct NavigationData {
-    float targetHeading;    // Desired heading in degrees
-    float headingError;     // Difference between current and target heading
-    bool compassValid;      // Overall compass system status
-} navData;
+// Wind data
+struct WindData {
+    float speed;        // Wind speed in mph
+    float direction;    // Wind direction in degrees (0-360)
+    volatile unsigned int pulseCount; // Anemometer pulse count
+    unsigned long lastPulseTime;     // Last pulse timestamp
+    bool valid;         // Data validity flag
+} windData;
 
 void setup() {
     // Initialize Serial for logging
@@ -51,14 +63,20 @@ void setup() {
     cmpsData.valid = false;
     cmpsData.isCalibrated = false;
     
-    // Initialize navigation data
-    navData.targetHeading = 0.0;
-    navData.headingError = 0.0;
-    navData.compassValid = false;
+    // Initialize wind data
+    windData.speed = 0.0;
+    windData.direction = 0.0;
+    windData.pulseCount = 0;
+    windData.lastPulseTime = 0;
+    windData.valid = false;
+    
+    // Setup wind speed pin with interrupt
+    pinMode(WIND_SPEED_PIN, INPUT_PULLUP);
+    attachInterrupt(digitalPinToInterrupt(WIND_SPEED_PIN), windSpeedISR, FALLING);
     
     // Print header
-    Serial.println("\nAutonomous Sailboat - Compass System");
-    Serial.println("Time(ms) | Heading(°) | Pitch(°) | Roll(°) | Calibration | Status");
+    Serial.println("\nAutonomous Sailboat - Sensor System");
+    Serial.println("Time(ms) | Heading(°) | Wind Dir(°) | Wind Spd(mph) | Status");
     Serial.println("------------------------------------------------------------------");
 }
 
@@ -67,6 +85,15 @@ void loop() {
     if (millis() - lastCompassReadTime >= COMPASS_READ_INTERVAL) {
         readCMPS12Data();
         lastCompassReadTime = millis();
+    }
+    
+    // Read wind direction
+    readWindDirection();
+    
+    // Calculate wind speed periodically
+    if (millis() - lastWindSpeedTime >= WIND_SPEED_INTERVAL) {
+        calculateWindSpeed();
+        lastWindSpeedTime = millis();
     }
     
     // Log data at specified interval
@@ -118,22 +145,25 @@ void readCMPS12Data() {
     }
 }
 
-void updateNavigation() {
-    if (!navData.compassValid) {
-        return;
-    }
-    
-    // Calculate heading error (normalized to -180 to 180 degrees)
-    navData.headingError = navData.targetHeading - cmpsData.heading;
-    if (navData.headingError > 180.0) {
-        navData.headingError -= 360.0;
-    } else if (navData.headingError < -180.0) {
-        navData.headingError += 360.0;
-    }
-    
-    // Check for compass timeout
-    if (millis() - lastValidCompassTime > COMPASS_TIMEOUT) {
-        navData.compassValid = false;
+void readWindDirection() {
+    int analogValue = analogRead(WIND_DIRECTION_PIN);
+    windData.direction = map(analogValue, 0, 1023, 0, 360);
+    windData.valid = true;
+}
+
+void calculateWindSpeed() {
+    float intervalSeconds = WIND_SPEED_INTERVAL / 1000.0;
+    float pulsesPerSecond = windData.pulseCount / intervalSeconds;
+    windData.speed = pulsesPerSecond * WIND_SPEED_CALIBRATION;
+    windData.pulseCount = 0;
+}
+
+// Wind speed interrupt service routine with debouncing
+void windSpeedISR() {
+    unsigned long currentTime = millis();
+    if (currentTime - windData.lastPulseTime > WIND_DEBOUNCE_TIME) {
+        windData.pulseCount++;
+        windData.lastPulseTime = currentTime;
     }
 }
 
@@ -146,41 +176,21 @@ void logData() {
     Serial.print(cmpsData.heading, 1);
     Serial.print("° | ");
     
-    // Print pitch with sign
-    if (cmpsData.pitch >= 0) Serial.print("+");
-    Serial.print(cmpsData.pitch, 1);
+    // Print wind direction
+    Serial.print(windData.direction, 1);
     Serial.print("° | ");
     
-    // Print roll with sign
-    if (cmpsData.roll >= 0) Serial.print("+");
-    Serial.print(cmpsData.roll, 1);
-    Serial.print("° | ");
-    
-    // Print calibration status
-    switch(cmpsData.calibration) {
-        case 0:
-            Serial.print("Not Calibrated");
-            break;
-        case 1:
-            Serial.print("Partial");
-            break;
-        case 2:
-            Serial.print("Mostly");
-            break;
-        case 3:
-            Serial.print("Fully");
-            break;
-        default:
-            Serial.print("Unknown");
-            break;
-    }
-    Serial.print(" | ");
+    // Print wind speed
+    Serial.print(windData.speed, 1);
+    Serial.print(" mph | ");
     
     // Print system status
     if (!cmpsData.valid) {
         Serial.println("COMPASS ERROR");
     } else if (!cmpsData.isCalibrated) {
         Serial.println("NEEDS CALIBRATION");
+    } else if (!windData.valid) {
+        Serial.println("WIND SENSOR ERROR");
     } else {
         Serial.println("OK");
     }
