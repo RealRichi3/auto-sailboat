@@ -5,6 +5,7 @@
 #include <SD.h>
 #include <SPI.h>
 #include <Adafruit_PWMServoDriver.h>
+#include "shared_definitions.h"
 
 // CMPS12 Commands
 #define CMPS_GET_ANGLE8 0x12
@@ -31,9 +32,7 @@
 #define COMPASS_TIMEOUT 5000   // milliseconds
 #define COMPASS_READ_INTERVAL 100  // milliseconds between compass readings
 #define MIN_CALIBRATION_LEVEL 2  // Require at least "Mostly Calibrated" (0-3 scale)
-#define GPS_TIMEOUT 10000      // milliseconds
 #define MIN_SATELLITES 4       // Minimum satellites for valid GPS fix
-#define SIMULATE_GPS true     // Set to true to enable GPS simulation
 
 // Wind Constants
 #define WIND_SPEED_INTERVAL 5000  // 5 seconds between wind speed calculations
@@ -64,63 +63,20 @@ unsigned long lastValidCompassTime = 0;
 unsigned long lastCompassReadTime = 0;
 unsigned long lastWindSpeedTime = 0;
 unsigned long lastServoUpdateTime = 0;
-unsigned long lastValidGPSTime = 0;
 
 // Data storage
-struct CMPS12Data {
-    float heading;      // 0-360 degrees
-    float pitch;        // -90 to +90 degrees
-    float roll;         // -90 to +90 degrees
-    uint8_t calibration; // 0-3 (3 is fully calibrated)
-    bool valid;         // Data validity flag
-    bool isCalibrated;  // Whether compass meets minimum calibration level
-} cmpsData;
-
-// Wind data
-struct WindData {
-    float speed;        // Wind speed in mph
-    float direction;    // Wind direction in degrees (0-360)
-    volatile unsigned int pulseCount; // Anemometer pulse count
-    unsigned long lastPulseTime;     // Last pulse timestamp
-    bool valid;         // Data validity flag
-} windData;
-
-// GPS data
-struct GPSData {
-    float latitude;     // Current latitude
-    float longitude;    // Current longitude
-    float speed;        // Speed in km/h
-    float course;       // Course over ground in degrees
-    int satellites;     // Number of satellites in view
-    bool valid;         // Data validity flag
-    int currentWaypoint; // Current waypoint index
-} gpsData;
-
-// Servo data
-struct ServoData {
-    float rudderAngle;  // Current rudder angle (degrees)
-    float sailAngle;    // Current sail angle (degrees)
-    float targetRudder; // Target rudder angle (degrees)
-    float targetSail;   // Target sail angle (degrees)
-    bool valid;         // Data validity flag
-} servoData;
+CMPS12Data cmpsData;
+WindData windData;
+float relativeWind = 0.0;  // Relative wind angle (0-360 degrees)
+GPSData gpsData;
+ServoData servoData;
 
 // GPS objects
-SoftwareSerial gpsSerial(GPS_RX_PIN, GPS_TX_PIN);
 TinyGPSPlus gps;
 
 // Servo objects
 Servo rudderServo;
 Servo sailServo;
-
-// GPS simulation data
-struct GPSSimulation {
-    float currentLat;    // Current simulated latitude
-    float currentLon;    // Current simulated longitude
-    float speed;         // Simulated speed in km/h
-    float heading;       // Simulated heading
-    unsigned long lastUpdate; // Last simulation update time
-} gpsSim;
 
 // SD Card Pin
 #define SD_CS_PIN 53  // Chip Select pin for SD card
@@ -138,6 +94,10 @@ const uint16_t SERVOMAX = 600; // Maximum pulse length count
 
 // Create PWM driver object
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
+
+// GPS simulation flag and data structure
+bool simulateGPS = false;     // Default to false, can be changed via command
+GPSSimulation gpsSim;
 
 // Test servos through their full range
 void testServos() {
@@ -179,7 +139,7 @@ void setup() {
     // Initialize Serial for logging
     Serial.begin(115200);
     while (!Serial); // Wait for Serial to be ready
-    
+
     // Initialize PWM servo driver
     pwm.begin();
     pwm.setOscillatorFrequency(27000000);
@@ -224,6 +184,7 @@ void setup() {
     gpsData.speed = 0.0;
     gpsData.course = 0.0;
     gpsData.satellites = 0;
+    gpsData.hdop = 0.0;
     gpsData.valid = false;
     gpsData.currentWaypoint = 0;
     
@@ -237,13 +198,13 @@ void setup() {
     // Setup wind speed pin with interrupt
     pinMode(WIND_SPEED_PIN, INPUT_PULLUP);
     attachInterrupt(digitalPinToInterrupt(WIND_SPEED_PIN), windSpeedISR, FALLING);
-    
+
     // Initialize GPS
-    gpsSerial.begin(9600);
-    
+    Serial2.begin(9600);
+
     // Initialize compass
     Serial3.begin(9600);
-    
+
     // Set servos to neutral position
     setServoAngles(90, 90);
     
@@ -252,16 +213,6 @@ void setup() {
     Serial.println("Time(ms) | Heading(°) | Wind Dir(°) | Rel Wind(°) | Wind Spd(mph) | Lat | Lon | Sat | Rudder(°) | Sail(°) (Target) | Status");
     Serial.println("------------------------------------------------------------------");
     
-    // Initialize GPS simulation
-    if (SIMULATE_GPS) {
-        // Start at first waypoint
-        gpsSim.currentLat = waypoints[0][0];
-        gpsSim.currentLon = waypoints[0][1];
-        gpsSim.speed = 5.0; // 5 km/h
-        gpsSim.heading = 0.0;
-        gpsSim.lastUpdate = millis();
-    }
-    
     // Add a delay to allow Serial to be ready
     delay(2000);
     
@@ -269,10 +220,11 @@ void setup() {
     Serial.println("\nCommands:");
     Serial.println("'t' - Test servos");
     Serial.println("'r' - Read log file");
+    Serial.println("'g' - Toggle GPS simulation");
     Serial.println("Any other key - Continue to normal operation");
     
     while (!Serial.available()) {
-        delay(100);
+      delay(100);
     }
     
     char command = Serial.read();
@@ -280,6 +232,20 @@ void setup() {
         testServos();
     } else if (command == 'r') {
         readLogFile();
+    } else if (command == 'g') {
+        simulateGPS = !simulateGPS;
+        Serial.print("GPS simulation ");
+        Serial.println(simulateGPS ? "enabled" : "disabled");
+        
+        if (simulateGPS) {
+            // Initialize simulation data
+            gpsSim.currentLat = waypoints[0][0];
+            gpsSim.currentLon = waypoints[0][1];
+            gpsSim.speed = 5.0; // 5 km/h
+            gpsSim.heading = 0.0;
+            gpsSim.lastUpdate = millis();
+            Serial.println("Starting at waypoint 1");
+        }
     }
     
     Serial.println("System initialized");
@@ -297,7 +263,7 @@ void loop() {
     
     // Calculate wind speed periodically
     if (millis() - lastWindSpeedTime >= WIND_SPEED_INTERVAL) {
-        calculateWindSpeed();
+      calculateWindSpeed();
         lastWindSpeedTime = millis();
     }
     
@@ -418,28 +384,42 @@ void windSpeedISR() {
 }
 
 void readGPSData() {
-    if (SIMULATE_GPS) {
+    if (simulateGPS) {
         simulateGPSData();
     } else {
-        // Original GPS reading code
-        while (gpsSerial.available() > 0) {
-            if (gps.encode(gpsSerial.read())) {
+        // Read real GPS data from serial port
+        while (Serial2.available() > 0) {
+            if (gps.encode(Serial2.read())) {
                 if (gps.location.isValid() && gps.satellites.value() >= MIN_SATELLITES) {
                     gpsData.latitude = gps.location.lat();
                     gpsData.longitude = gps.location.lng();
                     gpsData.speed = gps.speed.kmph();
                     gpsData.course = gps.course.deg();
                     gpsData.satellites = gps.satellites.value();
+                    gpsData.hdop = gps.hdop.value() / 100.0; // Convert to meters
                     gpsData.valid = true;
-                    lastValidGPSTime = millis();
+                    
+                    // Debug output for GPS data
+                    static unsigned long lastGPSTime = 0;
+                    if (millis() - lastGPSTime > 5000) { // Print every 5 seconds
+                        Serial.print("GPS Update - Lat: ");
+                        Serial.print(gpsData.latitude, 6);
+                        Serial.print(" Lon: ");
+                        Serial.print(gpsData.longitude, 6);
+                        Serial.print(" Speed: ");
+                        Serial.print(gpsData.speed, 1);
+                        Serial.print(" km/h Course: ");
+                        Serial.print(gpsData.course, 1);
+                        Serial.print("° Sats: ");
+                        Serial.print(gpsData.satellites);
+                        Serial.print(" HDOP: ");
+                        Serial.print(gpsData.hdop, 1);
+                        Serial.println("m");
+                        lastGPSTime = millis();
+                    }
                 }
             }
         }
-    }
-    
-    // Check GPS timeout
-    if (millis() - lastValidGPSTime > GPS_TIMEOUT) {
-        gpsData.valid = false;
     }
 }
 
@@ -480,10 +460,11 @@ void simulateGPSData() {
         
         if (distanceToWaypoint < WAYPOINT_RADIUS) {
             gpsData.currentWaypoint = (gpsData.currentWaypoint + 1) % NUM_WAYPOINTS;
+            Serial.print("Reached waypoint, moving to waypoint ");
+            Serial.println(gpsData.currentWaypoint + 1);
         }
         
         gpsSim.lastUpdate = currentTime;
-        lastValidGPSTime = currentTime;
     }
 }
 
@@ -554,7 +535,7 @@ float calculateBearing(float lat1, float lon1, float lat2, float lon2) {
 
 void calculateTargetAngles(float targetBearing) {
     // Calculate relative wind angle (0-360 degrees)
-    float relativeWind = fmod(windData.direction - cmpsData.heading + 360.0, 360.0);
+    relativeWind = fmod(windData.direction - cmpsData.heading + 360.0, 360.0);
     
     // Basic sail control based on wind angle
     if (relativeWind <= 45 || relativeWind >= 315) {
@@ -596,104 +577,92 @@ void rateLimitServoMovement(float &current, float target) {
 }
 
 void logData() {
-    // Print header every 5 logs
+    static unsigned long lastLogTime = 0;
     static int logCount = 0;
-    if (logCount % 5 == 0) {
-        Serial.println("Time(ms) | Heading(°) | Wind Dir(°) | Wind Spd(mph) | Lat | Lon | Sats | Rudder(°) | Sail(°) (T: Target) | Status");
-        Serial.println("--------------------------------------------------------------------------------------------------------");
-    }
-    logCount++;
-
-    // Create log string
-    String logString = "";
     
-    // Add timestamp
-    logString += String(millis());
-    logString += ",";
-    
-    // Add heading
-    logString += String(cmpsData.heading, 1);
-    logString += ",";
-    
-    // Add wind direction
-    logString += String(windData.direction, 1);
-    logString += ",";
-    
-    // Add wind speed
-    logString += String(windData.speed, 1);
-    logString += ",";
-    
-    // Add GPS data
-    logString += String(gpsData.latitude, 6);
-    logString += ",";
-    logString += String(gpsData.longitude, 6);
-    logString += ",";
-    logString += String(gpsData.satellites);
-    logString += ",";
-    
-    // Add rudder angle
-    logString += String(servoData.rudderAngle, 1);
-    logString += ",";
-    
-    // Add sail angle and target sail angle
-    logString += String(servoData.sailAngle, 1);
-    logString += ",";
-    logString += String(servoData.targetSail, 1);
-    logString += ",";
-    
-    // Add status
-    if (!cmpsData.valid) {
-        logString += "COMPASS_ERROR";
-    } else if (!cmpsData.isCalibrated) {
-        logString += "NEEDS_CALIBRATION";
-    } else if (!windData.valid) {
-        logString += "WIND_SENSOR_ERROR";
-    } else if (!gpsData.valid) {
-        logString += "GPS_ERROR";
-    } else if (!servoData.valid) {
-        logString += "SERVO_ERROR";
-    } else {
-        logString += "OK";
-    }
-    
-    // Write to SD card
-    logFile.println(logString);
-    logFile.flush(); // Ensure data is written to card
-    
-    // Also print to Serial for monitoring
-    Serial.print(millis());
-    Serial.print(" | ");
-    Serial.print(cmpsData.heading, 1);
-    Serial.print("° | ");
-    Serial.print(windData.direction, 1);
-    Serial.print("° | ");
-    Serial.print(windData.speed, 1);
-    Serial.print(" mph | ");
-    Serial.print(gpsData.latitude, 6);
-    Serial.print(" | ");
-    Serial.print(gpsData.longitude, 6);
-    Serial.print(" | ");
-    Serial.print(gpsData.satellites);
-    Serial.print(" | ");
-    Serial.print(servoData.rudderAngle, 1);
-    Serial.print("° | ");
-    Serial.print(servoData.sailAngle, 1);
-    Serial.print("° (T: ");
-    Serial.print(servoData.targetSail, 1);
-    Serial.print("°) | ");
-    
-    if (!cmpsData.valid) {
-        Serial.println("COMPASS ERROR");
-    } else if (!cmpsData.isCalibrated) {
-        Serial.println("NEEDS CALIBRATION");
-    } else if (!windData.valid) {
-        Serial.println("WIND SENSOR ERROR");
-    } else if (!gpsData.valid) {
-        Serial.println("GPS ERROR");
-    } else if (!servoData.valid) {
-        Serial.println("SERVO ERROR");
-    } else {
-        Serial.println("OK");
+    if (millis() - lastLogTime >= LOG_INTERVAL) {
+        // Print header every 5 logs
+        if (logCount % 5 == 0) {
+            Serial.println("\nTime(ms) | Heading(°) | Wind Dir(°) | Wind Spd(mph) | Lat | Lon | Sats | Speed(km/h) | Course(°) | Rudder(°) | Sail(°) (T: Target) | Status");
+            Serial.println("--------------------------------------------------------------------------------------------------------");
+        }
+        
+        Serial.print(millis());
+        Serial.print(" | ");
+        Serial.print(cmpsData.heading, 1);
+        Serial.print("° | ");
+        Serial.print(windData.direction, 1);
+        Serial.print("° | ");
+        Serial.print(windData.speed, 1);
+        Serial.print(" mph | ");
+        Serial.print(gpsData.latitude, 6);
+        Serial.print(" | ");
+        Serial.print(gpsData.longitude, 6);
+        Serial.print(" | ");
+        Serial.print(gpsData.satellites);
+        Serial.print(" | ");
+        Serial.print(gpsData.speed, 1);
+        Serial.print(" | ");
+        Serial.print(gpsData.course, 1);
+        Serial.print("° | ");
+        Serial.print(servoData.rudderAngle, 1);
+        Serial.print("° | ");
+        Serial.print(servoData.sailAngle, 1);
+        Serial.print("° (T: ");
+        Serial.print(servoData.targetSail, 1);
+        Serial.print("°) | ");
+        
+        String statusMessage = "";
+        if (!cmpsData.valid) {
+            statusMessage = "COMPASS_ERROR";
+        } else if (!cmpsData.isCalibrated) {
+            statusMessage = "NEEDS_CALIBRATION";
+        } else if (!windData.valid) {
+            statusMessage = "WIND_SENSOR_ERROR";
+        } else if (!gpsData.valid) {
+            statusMessage = "GPS_ERROR";
+        } else if (!servoData.valid) {
+            statusMessage = "SERVO_ERROR";
+        } else {
+            statusMessage = "OK";
+        }
+        
+        Serial.println(statusMessage);
+        
+        // Log to SD card
+        if (logFile) {
+            logFile.print(millis());
+            logFile.print(",");
+            logFile.print(cmpsData.heading);
+            logFile.print(",");
+            logFile.print(windData.direction);
+            logFile.print(",");
+            logFile.print(relativeWind);
+            logFile.print(",");
+            logFile.print(windData.speed);
+            logFile.print(",");
+            logFile.print(gpsData.latitude, 6);
+            logFile.print(",");
+            logFile.print(gpsData.longitude, 6);
+            logFile.print(",");
+            logFile.print(gpsData.satellites);
+            logFile.print(",");
+            logFile.print(gpsData.speed);
+            logFile.print(",");
+            logFile.print(gpsData.course);
+            logFile.print(",");
+            logFile.print(servoData.rudderAngle);
+            logFile.print(",");
+            logFile.print(servoData.sailAngle);
+            logFile.print(",");
+            logFile.print(servoData.targetSail);
+            logFile.print(",");
+            logFile.println(statusMessage);
+            logFile.flush();
+        }
+        
+        lastLogTime = millis();
+        logCount++;
     }
 }
 
