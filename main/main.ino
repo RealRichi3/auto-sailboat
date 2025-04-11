@@ -147,7 +147,7 @@ void setup() {
     
     // Write CSV header if file is empty
     if (logFile.size() == 0) {
-        logFile.println("Time(ms),Heading(°),WindDir(°),WindSpd(mph),Lat,Lon,Sat,Rudder(°),Sail(°),TargetSail(°),Status");
+        logFile.println("Time(ms),Heading(°),WindDir(°),RelWind(°),WindSpd(mph),Lat,Lon,Sat,Rudder(°),Sail(°),TargetSail(°),Status");
     }
     
     // Initialize CMPS12 on Serial3
@@ -201,7 +201,7 @@ void setup() {
     
     // Print header
     Serial.println("\nAutonomous Sailboat - Navigation System");
-    Serial.println("Time(ms) | Heading(°) | Wind Dir(°) | Wind Spd(mph) | Lat | Lon | Sat | Rudder(°) | Sail(°) (Target) | Status");
+    Serial.println("Time(ms) | Heading(°) | Wind Dir(°) | Rel Wind(°) | Wind Spd(mph) | Lat | Lon | Sat | Rudder(°) | Sail(°) (Target) | Status");
     Serial.println("------------------------------------------------------------------");
     
     // Initialize GPS simulation
@@ -226,6 +226,19 @@ void setup() {
     if (Serial.read() == 'r') {
         readLogFile();
     }
+    
+    // Test servos
+    Serial.println("Testing servos...");
+    for(int i = 0; i <= 180; i += 10) {
+        rudderServo.write(i);
+        sailServo.write(i);
+        Serial.print("Testing angle: ");
+        Serial.println(i);
+        delay(500);
+    }
+    // Return to neutral
+    rudderServo.write(90);
+    sailServo.write(90);
 }
 
 void loop() {
@@ -309,9 +322,40 @@ void readCMPS12Data() {
 }
 
 void readWindDirection() {
-    int analogValue = analogRead(WIND_DIRECTION_PIN);
-    windData.direction = map(analogValue, 0, 1023, 0, 360);
-    windData.valid = true;
+    // Read raw analog value
+    int rawValue = analogRead(WIND_DIRECTION_PIN);
+    
+    // Debug raw value periodically
+    static unsigned long lastDebugTime = 0;
+    if (millis() - lastDebugTime > 5000) { // Debug every 5 seconds
+        Serial.print("Wind Direction Raw: ");
+        Serial.println(rawValue);
+        lastDebugTime = millis();
+    }
+    
+    // Map the raw value to degrees (adjust these values based on your sensor)
+    // For a typical wind vane, the values might be different
+    // You'll need to calibrate these values based on your specific sensor
+    const int RAW_MIN = 0;    // Adjust based on your sensor's minimum value
+    const int RAW_MAX = 1023; // Adjust based on your sensor's maximum value
+    const int DEG_MIN = 0;    // Minimum degrees (0°)
+    const int DEG_MAX = 360;  // Maximum degrees (360°)
+    
+    // Map the value with calibration
+    windData.direction = map(rawValue, RAW_MIN, RAW_MAX, DEG_MIN, DEG_MAX);
+    
+    // Ensure the value is within 0-360 range
+    windData.direction = fmod(windData.direction + 360.0, 360.0);
+    
+    // Set validity flag
+    windData.valid = (rawValue >= RAW_MIN && rawValue <= RAW_MAX);
+    
+    // Debug the calculated direction periodically
+    if (millis() - lastDebugTime > 5000) {
+        Serial.print("Wind Direction Calculated: ");
+        Serial.print(windData.direction, 1);
+        Serial.println("°");
+    }
 }
 
 void calculateWindSpeed() {
@@ -508,6 +552,11 @@ void rateLimitServoMovement(float &current, float target) {
 }
 
 void logData() {
+    static int logCount = 0;  // Add counter for log lines
+    
+    // Calculate relative wind direction
+    float relativeWind = fmod(windData.direction - cmpsData.heading + 360.0, 360.0);
+    
     // Create log string
     String logString = "";
     
@@ -519,8 +568,12 @@ void logData() {
     logString += String(cmpsData.heading, 1);
     logString += ",";
     
-    // Add wind direction
+    // Add actual wind direction
     logString += String(windData.direction, 1);
+    logString += ",";
+    
+    // Add relative wind direction
+    logString += String(relativeWind, 1);
     logString += ",";
     
     // Add wind speed
@@ -564,12 +617,20 @@ void logData() {
     logFile.println(logString);
     logFile.flush(); // Ensure data is written to card
     
-    // Also print to Serial for monitoring
+    // Print to Serial for monitoring
+    if (logCount % 4 == 0) {
+        // Print header every 4 lines
+        Serial.println("\nTime(ms) | Heading(°) | Wind Dir(°) | Rel Wind(°) | Wind Spd(mph) | Lat | Lon | Sat | Rudder(°) | Sail(°) (Target) | Status");
+        Serial.println("------------------------------------------------------------------");
+    }
+    
     Serial.print(millis());
     Serial.print(" | ");
     Serial.print(cmpsData.heading, 1);
     Serial.print("° | ");
     Serial.print(windData.direction, 1);
+    Serial.print("° | ");
+    Serial.print(relativeWind, 1);
     Serial.print("° | ");
     Serial.print(windData.speed, 1);
     Serial.print(" mph | ");
@@ -599,6 +660,8 @@ void logData() {
     } else {
         Serial.println("OK");
     }
+    
+    logCount++;  // Increment the counter
 }
 
 void readLogFile() {
