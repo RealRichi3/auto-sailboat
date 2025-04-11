@@ -328,8 +328,8 @@ void readWindDirection() {
     // Debug raw value periodically
     static unsigned long lastDebugTime = 0;
     if (millis() - lastDebugTime > 5000) { // Debug every 5 seconds
-        Serial.print("Wind Direction Raw: ");
-        Serial.println(rawValue);
+        // Serial.print("Wind Direction Raw: ");
+        // Serial.println(rawValue);
         lastDebugTime = millis();
     }
     
@@ -478,10 +478,10 @@ float calculateDistance(float lat1, float lon1, float lat2, float lon2) {
     lon1 = lon1 * DEG_TO_RAD;
     lat2 = lat2 * DEG_TO_RAD;
     lon2 = lon2 * DEG_TO_RAD;
-    
+
     // Earth radius in meters
     const float R = 6371000.0;
-    
+
     // Haversine formula
     float dLat = lat2 - lat1;
     float dLon = lon2 - lon1;
@@ -552,11 +552,14 @@ void rateLimitServoMovement(float &current, float target) {
 }
 
 void logData() {
-    static int logCount = 0;  // Add counter for log lines
-    
-    // Calculate relative wind direction
-    float relativeWind = fmod(windData.direction - cmpsData.heading + 360.0, 360.0);
-    
+    // Print header every 5 logs
+    static int logCount = 0;
+    if (logCount % 5 == 0) {
+        Serial.println("Time(ms) | Heading(°) | Wind Dir(°) | Wind Spd(mph) | Lat | Lon | Sats | Rudder(°) | Sail(°) (T: Target) | Status");
+        Serial.println("--------------------------------------------------------------------------------------------------------");
+    }
+    logCount++;
+
     // Create log string
     String logString = "";
     
@@ -568,12 +571,8 @@ void logData() {
     logString += String(cmpsData.heading, 1);
     logString += ",";
     
-    // Add actual wind direction
+    // Add wind direction
     logString += String(windData.direction, 1);
-    logString += ",";
-    
-    // Add relative wind direction
-    logString += String(relativeWind, 1);
     logString += ",";
     
     // Add wind speed
@@ -617,13 +616,7 @@ void logData() {
     logFile.println(logString);
     logFile.flush(); // Ensure data is written to card
     
-    // Print to Serial for monitoring
-    if (logCount % 4 == 0) {
-        // Print header every 4 lines
-        Serial.println("\nTime(ms) | Heading(°) | Wind Dir(°) | Rel Wind(°) | Wind Spd(mph) | Lat | Lon | Sat | Rudder(°) | Sail(°) (Target) | Status");
-        Serial.println("------------------------------------------------------------------");
-    }
-    
+    // Also print to Serial for monitoring
     Serial.print(millis());
     Serial.print(" | ");
     Serial.print(cmpsData.heading, 1);
@@ -686,4 +679,16 @@ void readLogFile() {
     
     // Close the file
     logFile.close();
-} 
+}
+
+// Convert angle to PWM pulse
+uint16_t angleToPulse(int angle) {
+    return map(constrain(angle, 0, 180), 0, 180, SERVOMIN, SERVOMAX);
+}
+
+// Set servo angles
+void setServoAngles(int sail, int rudder) {
+    // Update servos
+    pwm.setPWM(SERVO1_CHANNEL, 0, angleToPulse(sail));
+    pwm.setPWM(SERVO2_CHANNEL, 0, angleToPulse(rudder));
+}
