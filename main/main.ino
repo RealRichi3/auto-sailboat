@@ -4,6 +4,7 @@
 #include <SoftwareSerial.h>
 #include <SD.h>
 #include <SPI.h>
+#include <Adafruit_PWMServoDriver.h>
 
 // CMPS12 Commands
 #define CMPS_GET_ANGLE8 0x12
@@ -127,10 +128,62 @@ struct GPSSimulation {
 // File for logging
 File logFile;
 
+// Servo channels
+#define SERVO1_CHANNEL 1       // Sail servo
+#define SERVO2_CHANNEL 0       // Rudder servo
+
+// Servo pulse limits
+const uint16_t SERVOMIN = 150; // Minimum pulse length count
+const uint16_t SERVOMAX = 600; // Maximum pulse length count
+
+// Create PWM driver object
+Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
+
+// Test servos through their full range
+void testServos() {
+    Serial.println("\nServo Test Sequence");
+    Serial.println("Time(ms) | Sail(°) | Rudder(°)");
+    Serial.println("---------------------------");
+
+    // Test sail servo
+    Serial.println("Testing Sail Servo...");
+    for(int angle = 0; angle <= 180; angle += 45) {
+        setServoAngles(angle, 90);
+        Serial.print(millis());
+        Serial.print(" | ");
+        Serial.print(angle);
+        Serial.print("° | ");
+        Serial.println(90);
+        delay(2000);
+    }
+    
+    // Test rudder servo
+    Serial.println("Testing Rudder Servo...");
+    for(int angle = 0; angle <= 180; angle += 45) {
+        setServoAngles(90, angle);
+        Serial.print(millis());
+        Serial.print(" | ");
+        Serial.print(90);
+        Serial.print("° | ");
+        Serial.println(angle);
+        delay(2000);
+    }
+    
+    // Return to neutral
+    setServoAngles(90, 90);
+    Serial.println("Test complete. Servos returned to neutral position.");
+    delay(2000);
+}
+
 void setup() {
     // Initialize Serial for logging
     Serial.begin(115200);
     while (!Serial); // Wait for Serial to be ready
+    
+    // Initialize PWM servo driver
+    pwm.begin();
+    pwm.setOscillatorFrequency(27000000);
+    pwm.setPWMFreq(60);  // 60 Hz is standard for most servos
     
     // Initialize SD card
     if (!SD.begin(SD_CS_PIN)) {
@@ -149,12 +202,6 @@ void setup() {
     if (logFile.size() == 0) {
         logFile.println("Time(ms),Heading(°),WindDir(°),RelWind(°),WindSpd(mph),Lat,Lon,Sat,Rudder(°),Sail(°),TargetSail(°),Status");
     }
-    
-    // Initialize CMPS12 on Serial3
-    Serial3.begin(9600);
-    
-    // Initialize GPS
-    gpsSerial.begin(9600);
     
     // Initialize compass data
     cmpsData.heading = 0.0;
@@ -191,13 +238,14 @@ void setup() {
     pinMode(WIND_SPEED_PIN, INPUT_PULLUP);
     attachInterrupt(digitalPinToInterrupt(WIND_SPEED_PIN), windSpeedISR, FALLING);
     
-    // Attach servos
-    rudderServo.attach(RUDDER_SERVO_PIN);
-    sailServo.attach(SAIL_SERVO_PIN);
+    // Initialize GPS
+    gpsSerial.begin(9600);
+    
+    // Initialize compass
+    Serial3.begin(9600);
     
     // Set servos to neutral position
-    rudderServo.write(RUDDER_NEUTRAL);
-    sailServo.write(SAIL_NEUTRAL);
+    setServoAngles(90, 90);
     
     // Print header
     Serial.println("\nAutonomous Sailboat - Navigation System");
@@ -217,28 +265,24 @@ void setup() {
     // Add a delay to allow Serial to be ready
     delay(2000);
     
-    // Add a command to read the log file
-    Serial.println("\nType 'r' to read the log file, or any other key to continue...");
+    // Command prompt
+    Serial.println("\nCommands:");
+    Serial.println("'t' - Test servos");
+    Serial.println("'r' - Read log file");
+    Serial.println("Any other key - Continue to normal operation");
+    
     while (!Serial.available()) {
         delay(100);
     }
     
-    if (Serial.read() == 'r') {
+    char command = Serial.read();
+    if (command == 't') {
+        testServos();
+    } else if (command == 'r') {
         readLogFile();
     }
     
-    // Test servos
-    Serial.println("Testing servos...");
-    for(int i = 0; i <= 180; i += 10) {
-        rudderServo.write(i);
-        sailServo.write(i);
-        Serial.print("Testing angle: ");
-        Serial.println(i);
-        delay(500);
-    }
-    // Return to neutral
-    rudderServo.write(90);
-    sailServo.write(90);
+    Serial.println("System initialized");
 }
 
 void loop() {
@@ -537,9 +581,9 @@ void updateServos() {
     rateLimitServoMovement(servoData.rudderAngle, servoData.targetRudder);
     rateLimitServoMovement(servoData.sailAngle, servoData.targetSail);
     
-    // Update servo positions
-    rudderServo.write(servoData.rudderAngle);
-    sailServo.write(servoData.sailAngle);
+    // Update servo positions using PWM driver
+    pwm.setPWM(SERVO1_CHANNEL, 0, angleToPulse(servoData.sailAngle));
+    pwm.setPWM(SERVO2_CHANNEL, 0, angleToPulse(servoData.rudderAngle));
 }
 
 void rateLimitServoMovement(float &current, float target) {
@@ -623,8 +667,6 @@ void logData() {
     Serial.print("° | ");
     Serial.print(windData.direction, 1);
     Serial.print("° | ");
-    Serial.print(relativeWind, 1);
-    Serial.print("° | ");
     Serial.print(windData.speed, 1);
     Serial.print(" mph | ");
     Serial.print(gpsData.latitude, 6);
@@ -653,8 +695,6 @@ void logData() {
     } else {
         Serial.println("OK");
     }
-    
-    logCount++;  // Increment the counter
 }
 
 void readLogFile() {
