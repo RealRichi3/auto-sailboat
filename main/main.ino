@@ -5,7 +5,6 @@
 #include <SD.h>
 #include <SPI.h>
 #include <Adafruit_PWMServoDriver.h>
-#include "shared_definitions.h"
 
 // CMPS12 Commands
 #define CMPS_GET_ANGLE8 0x12
@@ -65,11 +64,47 @@ unsigned long lastWindSpeedTime = 0;
 unsigned long lastServoUpdateTime = 0;
 
 // Data storage
-CMPS12Data cmpsData;
-WindData windData;
+struct CMPS12Data {
+    float heading;      // 0-360 degrees
+    float pitch;        // -90 to +90 degrees
+    float roll;         // -90 to +90 degrees
+    uint8_t calibration; // 0-3 (3 is fully calibrated)
+    bool valid;         // Data validity flag
+    bool isCalibrated;  // Whether compass meets minimum calibration level
+} cmpsData;
+
+// Wind data
+struct WindData {
+    float speed;        // Wind speed in mph
+    float direction;    // Wind direction in degrees (0-360)
+    volatile unsigned int pulseCount; // Anemometer pulse count
+    unsigned long lastPulseTime;     // Last pulse timestamp
+    bool valid;         // Data validity flag
+} windData;
+
+// Navigation data
 float relativeWind = 0.0;  // Relative wind angle (0-360 degrees)
-GPSData gpsData;
-ServoData servoData;
+
+// GPS data
+struct GPSData {
+    float latitude;     // Current latitude
+    float longitude;    // Current longitude
+    float speed;        // Speed in km/h
+    float course;       // Course over ground in degrees
+    int satellites;     // Number of satellites in view
+    float hdop;         // Horizontal dilution of precision
+    bool valid;         // Data validity flag
+    int currentWaypoint; // Current waypoint index
+} gpsData;
+
+// Servo data
+struct ServoData {
+    float rudderAngle;  // Current rudder angle (degrees)
+    float sailAngle;    // Current sail angle (degrees)
+    float targetRudder; // Target rudder angle (degrees)
+    float targetSail;   // Target sail angle (degrees)
+    bool valid;         // Data validity flag
+} servoData;
 
 // GPS objects
 TinyGPSPlus gps;
@@ -97,7 +132,19 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
 // GPS simulation flag and data structure
 bool simulateGPS = false;     // Default to false, can be changed via command
-GPSSimulation gpsSim;
+
+// GPS simulation data
+struct GPSSimulation {
+    float currentLat;    // Current simulated latitude
+    float currentLon;    // Current simulated longitude
+    float speed;         // Simulated speed in km/h
+    float heading;       // Simulated heading
+    unsigned long lastUpdate; // Last simulation update time
+} gpsSim;
+
+// Add destination coordinates
+const float DESTINATION_LAT = 52.48866;  // Hardcoded destination latitude
+const float DESTINATION_LON = -1.8891;  // Hardcoded destination longitude
 
 // Test servos through their full range
 void testServos() {
@@ -221,6 +268,8 @@ void setup() {
     Serial.println("'t' - Test servos");
     Serial.println("'r' - Read log file");
     Serial.println("'g' - Toggle GPS simulation");
+    Serial.println("'l' - List files on SD card");
+    Serial.println("'c' - Clear SD card");
     Serial.println("Any other key - Continue to normal operation");
     
     while (!Serial.available()) {
@@ -246,6 +295,10 @@ void setup() {
             gpsSim.lastUpdate = millis();
             Serial.println("Starting at waypoint 1");
         }
+    } else if (command == 'l') {
+        listSDFiles();
+    } else if (command == 'c') {
+        clearSDCard();
     }
     
     Serial.println("System initialized");
@@ -476,25 +529,31 @@ void updateNavigation() {
         return;
     }
     
-    // Calculate distance to current waypoint
-    float distanceToWaypoint = calculateDistance(
+    // Calculate distance to destination
+    float distanceToDestination = calculateDistance(
         gpsData.latitude, gpsData.longitude,
-        waypoints[gpsData.currentWaypoint][0], waypoints[gpsData.currentWaypoint][1]
+        DESTINATION_LAT, DESTINATION_LON
     );
     
-    // Check if waypoint reached
-    if (distanceToWaypoint < WAYPOINT_RADIUS) {
-        gpsData.currentWaypoint = (gpsData.currentWaypoint + 1) % NUM_WAYPOINTS;
-    }
-    
-    // Calculate bearing to next waypoint
+    // Calculate bearing to destination
     float bearing = calculateBearing(
         gpsData.latitude, gpsData.longitude,
-        waypoints[gpsData.currentWaypoint][0], waypoints[gpsData.currentWaypoint][1]
+        DESTINATION_LAT, DESTINATION_LON
     );
     
     // Calculate target angles based on bearing and wind
     calculateTargetAngles(bearing);
+    
+    // Print navigation info every 5 seconds
+    static unsigned long lastNavInfoTime = 0;
+    if (millis() - lastNavInfoTime > 5000) {
+        Serial.print("Distance to destination: ");
+        Serial.print(distanceToDestination, 1);
+        Serial.print("m, Bearing: ");
+        Serial.print(bearing, 1);
+        Serial.println("°");
+        lastNavInfoTime = millis();
+    }
 }
 
 float calculateDistance(float lat1, float lon1, float lat2, float lon2) {
@@ -700,4 +759,80 @@ void setServoAngles(int sail, int rudder) {
     // Update servos
     pwm.setPWM(SERVO1_CHANNEL, 0, angleToPulse(sail));
     pwm.setPWM(SERVO2_CHANNEL, 0, angleToPulse(rudder));
+}
+
+void listSDFiles() {
+    if (!SD.begin(SD_CS_PIN)) {
+        Serial.println("SD card initialization failed!");
+        return;
+    }
+    
+    File root = SD.open("/");
+    if (!root) {
+        Serial.println("Failed to open root directory");
+        return;
+    }
+    
+    Serial.println("Files on SD card:");
+    printDirectory(root, 0);
+    Serial.println("END_OF_LIST");
+    root.close();
+}
+
+void printDirectory(File dir, int numTabs) {
+    while (true) {
+        File entry = dir.openNextFile();
+        if (!entry) {
+            break;
+        }
+        
+        for (uint8_t i = 0; i < numTabs; i++) {
+            Serial.print('\t');
+        }
+        
+        Serial.print(entry.name());
+        if (entry.isDirectory()) {
+            Serial.println("/");
+            printDirectory(entry, numTabs + 1);
+        } else {
+            Serial.print("\t\t");
+            Serial.println(entry.size(), DEC);
+        }
+        entry.close();
+    }
+}
+
+void clearSDCard() {
+    if (!SD.begin(SD_CS_PIN)) {
+        Serial.println("SD card initialization failed!");
+        return;
+    }
+    
+    File root = SD.open("/");
+    if (!root) {
+        Serial.println("Failed to open root directory");
+        return;
+    }
+    
+    Serial.println("Clearing SD card...");
+    deleteAllFiles(root);
+    root.close();
+    Serial.println("SD card cleared successfully");
+}
+
+void deleteAllFiles(File dir) {
+    while (true) {
+        File entry = dir.openNextFile();
+        if (!entry) {
+            break;
+        }
+        
+        if (entry.isDirectory()) {
+            deleteAllFiles(entry);
+            SD.rmdir(entry.name());
+        } else {
+            SD.remove(entry.name());
+        }
+        entry.close();
+    }
 }
