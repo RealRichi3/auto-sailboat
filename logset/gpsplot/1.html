@@ -1,0 +1,3145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_88aa5483d3b378330f67bae01d16a762 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_88aa5483d3b378330f67bae01d16a762" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_88aa5483d3b378330f67bae01d16a762 = L.map(
+                "map_88aa5483d3b378330f67bae01d16a762",
+                {
+                    center: [52.484046, -1.889295],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_64c49aa71c8fd5e6b6a97849e6644792 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_64c49aa71c8fd5e6b6a97849e6644792.addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+            var circle_marker_b29e510b1f944c6a3b43c7742b190749 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_ec1d50d698198d3044b2845dc7c64910 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff55d71c6b538f5f4de893d5c920983a = $(`<div id="html_ff55d71c6b538f5f4de893d5c920983a" style="width: 100.0%; height: 100.0%;">             Time: 4947s<br>             Heading: 2.6°<br>             Wind Direction: 298.0°<br>             Relative Wind: 295.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 40.0°<br>             Target Sail: 40.0°<br>             Status: OK             </div>`)[0];
+                popup_ec1d50d698198d3044b2845dc7c64910.setContent(html_ff55d71c6b538f5f4de893d5c920983a);
+            
+        
+
+        circle_marker_b29e510b1f944c6a3b43c7742b190749.bindPopup(popup_ec1d50d698198d3044b2845dc7c64910)
+        ;
+
+        
+    
+    
+            var circle_marker_29699fe18b0064251d4e73e50bd77b13 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_c53eb0cdc8f9f4cca27e5b0e894ecb4c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2be388de73de5070347b6945ce7ee071 = $(`<div id="html_2be388de73de5070347b6945ce7ee071" style="width: 100.0%; height: 100.0%;">             Time: 5981s<br>             Heading: 2.6°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_c53eb0cdc8f9f4cca27e5b0e894ecb4c.setContent(html_2be388de73de5070347b6945ce7ee071);
+            
+        
+
+        circle_marker_29699fe18b0064251d4e73e50bd77b13.bindPopup(popup_c53eb0cdc8f9f4cca27e5b0e894ecb4c)
+        ;
+
+        
+    
+    
+            var circle_marker_a86e8cfeb5c97629c716b84481219b67 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_02f8dc34e52b73ac2f3c00c95e15e3f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c67912a6d64957b1e98ce22c3a99002f = $(`<div id="html_c67912a6d64957b1e98ce22c3a99002f" style="width: 100.0%; height: 100.0%;">             Time: 7012s<br>             Heading: 2.6°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_02f8dc34e52b73ac2f3c00c95e15e3f3.setContent(html_c67912a6d64957b1e98ce22c3a99002f);
+            
+        
+
+        circle_marker_a86e8cfeb5c97629c716b84481219b67.bindPopup(popup_02f8dc34e52b73ac2f3c00c95e15e3f3)
+        ;
+
+        
+    
+    
+            var circle_marker_50e9529783a0db9b9de3d5b469a977a2 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_d5df8b48f453ad6f034cbf1e233c3456 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff41372925bd69005cadcdf661117f21 = $(`<div id="html_ff41372925bd69005cadcdf661117f21" style="width: 100.0%; height: 100.0%;">             Time: 8044s<br>             Heading: 2.7°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_d5df8b48f453ad6f034cbf1e233c3456.setContent(html_ff41372925bd69005cadcdf661117f21);
+            
+        
+
+        circle_marker_50e9529783a0db9b9de3d5b469a977a2.bindPopup(popup_d5df8b48f453ad6f034cbf1e233c3456)
+        ;
+
+        
+    
+    
+            var circle_marker_e3c220ca3e53f949a016ed9c8b2e982c = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_6949d9d9e133f5007f2b512ef3bf5bdf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1224541e17eea574a00997d23b89b5fb = $(`<div id="html_1224541e17eea574a00997d23b89b5fb" style="width: 100.0%; height: 100.0%;">             Time: 9098s<br>             Heading: 2.5°<br>             Wind Direction: 296.0°<br>             Relative Wind: 293.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 44.0°<br>             Target Sail: 44.0°<br>             Status: OK             </div>`)[0];
+                popup_6949d9d9e133f5007f2b512ef3bf5bdf.setContent(html_1224541e17eea574a00997d23b89b5fb);
+            
+        
+
+        circle_marker_e3c220ca3e53f949a016ed9c8b2e982c.bindPopup(popup_6949d9d9e133f5007f2b512ef3bf5bdf)
+        ;
+
+        
+    
+    
+            var circle_marker_580c878659d85f5699bc1376d7bd405e = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_c900a13d4526f2672c092a5d5ab83a56 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7bdf77bf79d6f915fd73abb6c3a9ab5f = $(`<div id="html_7bdf77bf79d6f915fd73abb6c3a9ab5f" style="width: 100.0%; height: 100.0%;">             Time: 10131s<br>             Heading: 2.6°<br>             Wind Direction: 296.0°<br>             Relative Wind: 293.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 44.0°<br>             Target Sail: 44.0°<br>             Status: OK             </div>`)[0];
+                popup_c900a13d4526f2672c092a5d5ab83a56.setContent(html_7bdf77bf79d6f915fd73abb6c3a9ab5f);
+            
+        
+
+        circle_marker_580c878659d85f5699bc1376d7bd405e.bindPopup(popup_c900a13d4526f2672c092a5d5ab83a56)
+        ;
+
+        
+    
+    
+            var circle_marker_3825f66bc71dde2ee27ee8bca98338ae = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_93b13c6c6d276edfc7033c2863b05741 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d73b07b407968b792d7570d4341a13cd = $(`<div id="html_d73b07b407968b792d7570d4341a13cd" style="width: 100.0%; height: 100.0%;">             Time: 11166s<br>             Heading: 2.6°<br>             Wind Direction: 296.0°<br>             Relative Wind: 293.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 44.0°<br>             Target Sail: 44.0°<br>             Status: OK             </div>`)[0];
+                popup_93b13c6c6d276edfc7033c2863b05741.setContent(html_d73b07b407968b792d7570d4341a13cd);
+            
+        
+
+        circle_marker_3825f66bc71dde2ee27ee8bca98338ae.bindPopup(popup_93b13c6c6d276edfc7033c2863b05741)
+        ;
+
+        
+    
+    
+            var circle_marker_81638732ff0df205940a988b9ebb647f = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_6db4e42d1c3103e7c0ba1c0f926e8363 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c255cd46dfc92d65c9a6c59b6059df60 = $(`<div id="html_c255cd46dfc92d65c9a6c59b6059df60" style="width: 100.0%; height: 100.0%;">             Time: 12201s<br>             Heading: 2.6°<br>             Wind Direction: 296.0°<br>             Relative Wind: 293.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 44.0°<br>             Target Sail: 44.0°<br>             Status: OK             </div>`)[0];
+                popup_6db4e42d1c3103e7c0ba1c0f926e8363.setContent(html_c255cd46dfc92d65c9a6c59b6059df60);
+            
+        
+
+        circle_marker_81638732ff0df205940a988b9ebb647f.bindPopup(popup_6db4e42d1c3103e7c0ba1c0f926e8363)
+        ;
+
+        
+    
+    
+            var circle_marker_8ac55a0205fd60bfecb945fb7b92995a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_10fa956658b68d33cf8ff33af601694e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22a92c8f45780a2c429d29fc8c774a00 = $(`<div id="html_22a92c8f45780a2c429d29fc8c774a00" style="width: 100.0%; height: 100.0%;">             Time: 13234s<br>             Heading: 2.6°<br>             Wind Direction: 295.0°<br>             Relative Wind: 292.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 46.0°<br>             Target Sail: 46.0°<br>             Status: OK             </div>`)[0];
+                popup_10fa956658b68d33cf8ff33af601694e.setContent(html_22a92c8f45780a2c429d29fc8c774a00);
+            
+        
+
+        circle_marker_8ac55a0205fd60bfecb945fb7b92995a.bindPopup(popup_10fa956658b68d33cf8ff33af601694e)
+        ;
+
+        
+    
+    
+            var circle_marker_ddc4291e1295773085c4b5e1355f424d = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_d70e3ac29d348fa8d6a47c1582a62bc5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5a4deb421ef46b46d9f4362b320b426 = $(`<div id="html_f5a4deb421ef46b46d9f4362b320b426" style="width: 100.0%; height: 100.0%;">             Time: 14301s<br>             Heading: 2.6°<br>             Wind Direction: 296.0°<br>             Relative Wind: 293.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 44.0°<br>             Target Sail: 44.0°<br>             Status: OK             </div>`)[0];
+                popup_d70e3ac29d348fa8d6a47c1582a62bc5.setContent(html_f5a4deb421ef46b46d9f4362b320b426);
+            
+        
+
+        circle_marker_ddc4291e1295773085c4b5e1355f424d.bindPopup(popup_d70e3ac29d348fa8d6a47c1582a62bc5)
+        ;
+
+        
+    
+    
+            var circle_marker_1273725bceb569d3c4c6f8fc67cefc02 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_1e8db34e7ed645ab8bc938879ddb88f2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_81b76776f4a25ff896ec8d3700b6bfe6 = $(`<div id="html_81b76776f4a25ff896ec8d3700b6bfe6" style="width: 100.0%; height: 100.0%;">             Time: 15335s<br>             Heading: 2.7°<br>             Wind Direction: 296.0°<br>             Relative Wind: 293.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 44.0°<br>             Target Sail: 44.0°<br>             Status: OK             </div>`)[0];
+                popup_1e8db34e7ed645ab8bc938879ddb88f2.setContent(html_81b76776f4a25ff896ec8d3700b6bfe6);
+            
+        
+
+        circle_marker_1273725bceb569d3c4c6f8fc67cefc02.bindPopup(popup_1e8db34e7ed645ab8bc938879ddb88f2)
+        ;
+
+        
+    
+    
+            var circle_marker_f6d314cbcc5371c3b59ae25583f50358 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_10c1ebccc82e3d803eedda2c22265480 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6d9f2ddbf872690bdafb5c8a0d37aba = $(`<div id="html_f6d9f2ddbf872690bdafb5c8a0d37aba" style="width: 100.0%; height: 100.0%;">             Time: 16371s<br>             Heading: 2.7°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_10c1ebccc82e3d803eedda2c22265480.setContent(html_f6d9f2ddbf872690bdafb5c8a0d37aba);
+            
+        
+
+        circle_marker_f6d314cbcc5371c3b59ae25583f50358.bindPopup(popup_10c1ebccc82e3d803eedda2c22265480)
+        ;
+
+        
+    
+    
+            var circle_marker_0883ae00dfbbc1169d20f2bcd69128b7 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_bee22a6b588b5577a0d2978cfcb1c9da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f0859a24867226d8fee3bb9899a6115 = $(`<div id="html_2f0859a24867226d8fee3bb9899a6115" style="width: 100.0%; height: 100.0%;">             Time: 17406s<br>             Heading: 2.7°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_bee22a6b588b5577a0d2978cfcb1c9da.setContent(html_2f0859a24867226d8fee3bb9899a6115);
+            
+        
+
+        circle_marker_0883ae00dfbbc1169d20f2bcd69128b7.bindPopup(popup_bee22a6b588b5577a0d2978cfcb1c9da)
+        ;
+
+        
+    
+    
+            var circle_marker_5e821485be567b9eef37ce986eca184e = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_dbfdcb5c84e8ffc57f79ba9b3907de5b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a703cc041ab22528510d4f530c23ee15 = $(`<div id="html_a703cc041ab22528510d4f530c23ee15" style="width: 100.0%; height: 100.0%;">             Time: 18440s<br>             Heading: 2.7°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_dbfdcb5c84e8ffc57f79ba9b3907de5b.setContent(html_a703cc041ab22528510d4f530c23ee15);
+            
+        
+
+        circle_marker_5e821485be567b9eef37ce986eca184e.bindPopup(popup_dbfdcb5c84e8ffc57f79ba9b3907de5b)
+        ;
+
+        
+    
+    
+            var circle_marker_5c7988fe56b35e1ca5275817836bef29 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_9d2358d235c6af8676be10ead52ba575 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_96047eddd140e32aa60b5252f51f56af = $(`<div id="html_96047eddd140e32aa60b5252f51f56af" style="width: 100.0%; height: 100.0%;">             Time: 19492s<br>             Heading: 2.7°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_9d2358d235c6af8676be10ead52ba575.setContent(html_96047eddd140e32aa60b5252f51f56af);
+            
+        
+
+        circle_marker_5c7988fe56b35e1ca5275817836bef29.bindPopup(popup_9d2358d235c6af8676be10ead52ba575)
+        ;
+
+        
+    
+    
+            var circle_marker_28f2c921ec1589e4252272c0f62d9ba1 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_5007805a2242f90955614d51fbfd7b8d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d67340f4b317750dbe929b457f67ccd8 = $(`<div id="html_d67340f4b317750dbe929b457f67ccd8" style="width: 100.0%; height: 100.0%;">             Time: 20530s<br>             Heading: 2.7°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.3°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_5007805a2242f90955614d51fbfd7b8d.setContent(html_d67340f4b317750dbe929b457f67ccd8);
+            
+        
+
+        circle_marker_28f2c921ec1589e4252272c0f62d9ba1.bindPopup(popup_5007805a2242f90955614d51fbfd7b8d)
+        ;
+
+        
+    
+    
+            var circle_marker_093b9c4b25c682158021651c8b61f452 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_0d02077cee96f76d0eadd7904b1a82e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f725e9abf022c236d93415e750ae9243 = $(`<div id="html_f725e9abf022c236d93415e750ae9243" style="width: 100.0%; height: 100.0%;">             Time: 21563s<br>             Heading: 2.7°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.3°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_0d02077cee96f76d0eadd7904b1a82e5.setContent(html_f725e9abf022c236d93415e750ae9243);
+            
+        
+
+        circle_marker_093b9c4b25c682158021651c8b61f452.bindPopup(popup_0d02077cee96f76d0eadd7904b1a82e5)
+        ;
+
+        
+    
+    
+            var circle_marker_fa51c224ccfb28ef321871053e83f257 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_580af42e0ba5aeedbbbb77707f5af764 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13a403e42026206637669200c3456fc3 = $(`<div id="html_13a403e42026206637669200c3456fc3" style="width: 100.0%; height: 100.0%;">             Time: 22596s<br>             Heading: 2.7°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.3°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_580af42e0ba5aeedbbbb77707f5af764.setContent(html_13a403e42026206637669200c3456fc3);
+            
+        
+
+        circle_marker_fa51c224ccfb28ef321871053e83f257.bindPopup(popup_580af42e0ba5aeedbbbb77707f5af764)
+        ;
+
+        
+    
+    
+            var circle_marker_dd16fc2c9e4c27770ed4feb88ea4519e = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_3e070f7c6977f8b0367770ce99c087d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_799c2608b008e392042558b76e21f13b = $(`<div id="html_799c2608b008e392042558b76e21f13b" style="width: 100.0%; height: 100.0%;">             Time: 23631s<br>             Heading: 2.7°<br>             Wind Direction: 297.0°<br>             Relative Wind: 294.3°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 42.0°<br>             Target Sail: 42.0°<br>             Status: OK             </div>`)[0];
+                popup_3e070f7c6977f8b0367770ce99c087d5.setContent(html_799c2608b008e392042558b76e21f13b);
+            
+        
+
+        circle_marker_dd16fc2c9e4c27770ed4feb88ea4519e.bindPopup(popup_3e070f7c6977f8b0367770ce99c087d5)
+        ;
+
+        
+    
+    
+            var circle_marker_b4242ce48dfc317f44f56ed174a98e40 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_513db0010158630d668872e18dec9064 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8c908fb7037e76b8134df44ed713df15 = $(`<div id="html_8c908fb7037e76b8134df44ed713df15" style="width: 100.0%; height: 100.0%;">             Time: 24698s<br>             Heading: 2.7°<br>             Wind Direction: 303.0°<br>             Relative Wind: 300.3°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 30.0°<br>             Target Sail: 30.0°<br>             Status: OK             </div>`)[0];
+                popup_513db0010158630d668872e18dec9064.setContent(html_8c908fb7037e76b8134df44ed713df15);
+            
+        
+
+        circle_marker_b4242ce48dfc317f44f56ed174a98e40.bindPopup(popup_513db0010158630d668872e18dec9064)
+        ;
+
+        
+    
+    
+            var circle_marker_562e4b0c44897bd6fdd0b8eb5e31f56a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_4353350eb5a2e70ec92842d225755da4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_777ff6aabb03626bc1ef94bb8d25df2f = $(`<div id="html_777ff6aabb03626bc1ef94bb8d25df2f" style="width: 100.0%; height: 100.0%;">             Time: 25732s<br>             Heading: 2.6°<br>             Wind Direction: 331.0°<br>             Relative Wind: 328.4°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_4353350eb5a2e70ec92842d225755da4.setContent(html_777ff6aabb03626bc1ef94bb8d25df2f);
+            
+        
+
+        circle_marker_562e4b0c44897bd6fdd0b8eb5e31f56a.bindPopup(popup_4353350eb5a2e70ec92842d225755da4)
+        ;
+
+        
+    
+    
+            var circle_marker_26b30f28312ca7d09cda858b8e6d4cd4 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_e7c7ddead14fd72c97fc81bd24d4631c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_00bf6c5b382eb9e56eeca2136f2e53e8 = $(`<div id="html_00bf6c5b382eb9e56eeca2136f2e53e8" style="width: 100.0%; height: 100.0%;">             Time: 26760s<br>             Heading: 2.8°<br>             Wind Direction: 332.0°<br>             Relative Wind: 329.2°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_e7c7ddead14fd72c97fc81bd24d4631c.setContent(html_00bf6c5b382eb9e56eeca2136f2e53e8);
+            
+        
+
+        circle_marker_26b30f28312ca7d09cda858b8e6d4cd4.bindPopup(popup_e7c7ddead14fd72c97fc81bd24d4631c)
+        ;
+
+        
+    
+    
+            var circle_marker_edbc5d8cdb9c0133268e919e711ef1c8 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_aeab57ce4b22d4bfbe5d9ba1c9ddc069 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_781c9081d270c5fe304dfe561f45be15 = $(`<div id="html_781c9081d270c5fe304dfe561f45be15" style="width: 100.0%; height: 100.0%;">             Time: 27787s<br>             Heading: 2.8°<br>             Wind Direction: 332.0°<br>             Relative Wind: 329.2°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_aeab57ce4b22d4bfbe5d9ba1c9ddc069.setContent(html_781c9081d270c5fe304dfe561f45be15);
+            
+        
+
+        circle_marker_edbc5d8cdb9c0133268e919e711ef1c8.bindPopup(popup_aeab57ce4b22d4bfbe5d9ba1c9ddc069)
+        ;
+
+        
+    
+    
+            var circle_marker_69d35b1120e34f00aa96241da11d3bbe = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_6ddb3ad682cda73f9588fd81b806affb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_684de093417f238b6a0b517ff20131e3 = $(`<div id="html_684de093417f238b6a0b517ff20131e3" style="width: 100.0%; height: 100.0%;">             Time: 28829s<br>             Heading: 2.8°<br>             Wind Direction: 86.0°<br>             Relative Wind: 83.2°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 76.0°<br>             Target Sail: 76.0°<br>             Status: OK             </div>`)[0];
+                popup_6ddb3ad682cda73f9588fd81b806affb.setContent(html_684de093417f238b6a0b517ff20131e3);
+            
+        
+
+        circle_marker_69d35b1120e34f00aa96241da11d3bbe.bindPopup(popup_6ddb3ad682cda73f9588fd81b806affb)
+        ;
+
+        
+    
+    
+            var circle_marker_f1f9ad60dc37e754844ccac22c1643d3 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_8cbee44b36b8785c6cd8faff3e06fb04 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9056ec8709ef171cb871d84871378f74 = $(`<div id="html_9056ec8709ef171cb871d84871378f74" style="width: 100.0%; height: 100.0%;">             Time: 29884s<br>             Heading: 2.7°<br>             Wind Direction: 155.0°<br>             Relative Wind: 152.3°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 180.0°<br>             Target Sail: 180.0°<br>             Status: OK             </div>`)[0];
+                popup_8cbee44b36b8785c6cd8faff3e06fb04.setContent(html_9056ec8709ef171cb871d84871378f74);
+            
+        
+
+        circle_marker_f1f9ad60dc37e754844ccac22c1643d3.bindPopup(popup_8cbee44b36b8785c6cd8faff3e06fb04)
+        ;
+
+        
+    
+    
+            var circle_marker_a430107abfda4c37e56f2844838cd6b6 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_2ed79623ffc48f832b60c5bf91f3b837 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_39f2ce5e3b28831648561ffa779de45c = $(`<div id="html_39f2ce5e3b28831648561ffa779de45c" style="width: 100.0%; height: 100.0%;">             Time: 30918s<br>             Heading: 2.8°<br>             Wind Direction: 7.0°<br>             Relative Wind: 4.2°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_2ed79623ffc48f832b60c5bf91f3b837.setContent(html_39f2ce5e3b28831648561ffa779de45c);
+            
+        
+
+        circle_marker_a430107abfda4c37e56f2844838cd6b6.bindPopup(popup_2ed79623ffc48f832b60c5bf91f3b837)
+        ;
+
+        
+    
+    
+            var circle_marker_62fa52c67237a12f4f3e5bbc91d57a74 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_afb7aaf36c06ba80b5ced08e233d35d8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03ffce3ccc83ef555e4ab3056be76f09 = $(`<div id="html_03ffce3ccc83ef555e4ab3056be76f09" style="width: 100.0%; height: 100.0%;">             Time: 31945s<br>             Heading: 2.8°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.2°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_afb7aaf36c06ba80b5ced08e233d35d8.setContent(html_03ffce3ccc83ef555e4ab3056be76f09);
+            
+        
+
+        circle_marker_62fa52c67237a12f4f3e5bbc91d57a74.bindPopup(popup_afb7aaf36c06ba80b5ced08e233d35d8)
+        ;
+
+        
+    
+    
+            var circle_marker_2a0e791ce64cf908ac3ac5ac5ebd1014 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_c60f7a2d8a5d0f314998880e0966ea35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_44c61d9d19dd930d897c7eeacfec08af = $(`<div id="html_44c61d9d19dd930d897c7eeacfec08af" style="width: 100.0%; height: 100.0%;">             Time: 32972s<br>             Heading: 2.9°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.1°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_c60f7a2d8a5d0f314998880e0966ea35.setContent(html_44c61d9d19dd930d897c7eeacfec08af);
+            
+        
+
+        circle_marker_2a0e791ce64cf908ac3ac5ac5ebd1014.bindPopup(popup_c60f7a2d8a5d0f314998880e0966ea35)
+        ;
+
+        
+    
+    
+            var circle_marker_4c4e8caace2099c04f9ed7c83fe9f5a8 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_dc4a63e67cfc2e3988b6002118ff8397 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_70042fd38fa70dcaecf73ab1d2bb68c5 = $(`<div id="html_70042fd38fa70dcaecf73ab1d2bb68c5" style="width: 100.0%; height: 100.0%;">             Time: 34000s<br>             Heading: 2.8°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.2°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_dc4a63e67cfc2e3988b6002118ff8397.setContent(html_70042fd38fa70dcaecf73ab1d2bb68c5);
+            
+        
+
+        circle_marker_4c4e8caace2099c04f9ed7c83fe9f5a8.bindPopup(popup_dc4a63e67cfc2e3988b6002118ff8397)
+        ;
+
+        
+    
+    
+            var circle_marker_415e4a2eba1e7445c5d439f56ff69c0b = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_679f12ce7eaeb026fdbbf1522fda3748 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e73e048b19d86ad02bccc692b3f8e63a = $(`<div id="html_e73e048b19d86ad02bccc692b3f8e63a" style="width: 100.0%; height: 100.0%;">             Time: 35061s<br>             Heading: 2.9°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.1°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_679f12ce7eaeb026fdbbf1522fda3748.setContent(html_e73e048b19d86ad02bccc692b3f8e63a);
+            
+        
+
+        circle_marker_415e4a2eba1e7445c5d439f56ff69c0b.bindPopup(popup_679f12ce7eaeb026fdbbf1522fda3748)
+        ;
+
+        
+    
+    
+            var circle_marker_30c5cce1f63f70a5a5f8552f197098d6 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_6672004603f8d11b5164591a37a870b5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bee119af58c314068b93984f73114088 = $(`<div id="html_bee119af58c314068b93984f73114088" style="width: 100.0%; height: 100.0%;">             Time: 36093s<br>             Heading: 2.9°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.1°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_6672004603f8d11b5164591a37a870b5.setContent(html_bee119af58c314068b93984f73114088);
+            
+        
+
+        circle_marker_30c5cce1f63f70a5a5f8552f197098d6.bindPopup(popup_6672004603f8d11b5164591a37a870b5)
+        ;
+
+        
+    
+    
+            var circle_marker_79f5b177cba6c75fc1c05a82ba790b2e = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_a553e870593359a07117e99b3318c3ee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bad17d0c4dd8776dc1cf99fdac2acd06 = $(`<div id="html_bad17d0c4dd8776dc1cf99fdac2acd06" style="width: 100.0%; height: 100.0%;">             Time: 37124s<br>             Heading: 2.9°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.1°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_a553e870593359a07117e99b3318c3ee.setContent(html_bad17d0c4dd8776dc1cf99fdac2acd06);
+            
+        
+
+        circle_marker_79f5b177cba6c75fc1c05a82ba790b2e.bindPopup(popup_a553e870593359a07117e99b3318c3ee)
+        ;
+
+        
+    
+    
+            var circle_marker_bc2ca68532de4848f576506674623835 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_d34332890e9e735ea8fc80b7e7666170 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ad15e1c8fef089bb174c64d524ce98e8 = $(`<div id="html_ad15e1c8fef089bb174c64d524ce98e8" style="width: 100.0%; height: 100.0%;">             Time: 38151s<br>             Heading: 2.9°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.1°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_d34332890e9e735ea8fc80b7e7666170.setContent(html_ad15e1c8fef089bb174c64d524ce98e8);
+            
+        
+
+        circle_marker_bc2ca68532de4848f576506674623835.bindPopup(popup_d34332890e9e735ea8fc80b7e7666170)
+        ;
+
+        
+    
+    
+            var circle_marker_003755137504fb59bf76abc68df4a00a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_cad1472412108c6c0b978c38003f59e7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8082265279c9007a05d809928654816e = $(`<div id="html_8082265279c9007a05d809928654816e" style="width: 100.0%; height: 100.0%;">             Time: 39192s<br>             Heading: 3.0°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_cad1472412108c6c0b978c38003f59e7.setContent(html_8082265279c9007a05d809928654816e);
+            
+        
+
+        circle_marker_003755137504fb59bf76abc68df4a00a.bindPopup(popup_cad1472412108c6c0b978c38003f59e7)
+        ;
+
+        
+    
+    
+            var circle_marker_6a13126783b828857ad7f776132bdb7c = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_c668e3abfe366411be29f8689e89c426 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6a4bd49980867a4bd4ac92debeddbb56 = $(`<div id="html_6a4bd49980867a4bd4ac92debeddbb56" style="width: 100.0%; height: 100.0%;">             Time: 40241s<br>             Heading: 3.0°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.0°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_c668e3abfe366411be29f8689e89c426.setContent(html_6a4bd49980867a4bd4ac92debeddbb56);
+            
+        
+
+        circle_marker_6a13126783b828857ad7f776132bdb7c.bindPopup(popup_c668e3abfe366411be29f8689e89c426)
+        ;
+
+        
+    
+    
+            var circle_marker_6f6e5f8de077b7b794a3ce0b2ec7eb03 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_9d304e53267fe325a9532d88aaf152f4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ddef8334b93164ffc349a3c6c9fe959e = $(`<div id="html_ddef8334b93164ffc349a3c6c9fe959e" style="width: 100.0%; height: 100.0%;">             Time: 41272s<br>             Heading: 3.0°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.0°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_9d304e53267fe325a9532d88aaf152f4.setContent(html_ddef8334b93164ffc349a3c6c9fe959e);
+            
+        
+
+        circle_marker_6f6e5f8de077b7b794a3ce0b2ec7eb03.bindPopup(popup_9d304e53267fe325a9532d88aaf152f4)
+        ;
+
+        
+    
+    
+            var circle_marker_dab7ef2a11bb3066ba8f54fb1fb3702e = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_ea790231f3baad5ac018008f89ef99b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_62a47509cf8967f8a880cd2d045dd9ea = $(`<div id="html_62a47509cf8967f8a880cd2d045dd9ea" style="width: 100.0%; height: 100.0%;">             Time: 42299s<br>             Heading: 2.9°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.1°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_ea790231f3baad5ac018008f89ef99b1.setContent(html_62a47509cf8967f8a880cd2d045dd9ea);
+            
+        
+
+        circle_marker_dab7ef2a11bb3066ba8f54fb1fb3702e.bindPopup(popup_ea790231f3baad5ac018008f89ef99b1)
+        ;
+
+        
+    
+    
+            var circle_marker_01950722e7bf52d4662aec6ee6f6c7a1 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_5c3b37ed4488edd07d0623e04752ed2d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_539de654c11ab048b688941583721f63 = $(`<div id="html_539de654c11ab048b688941583721f63" style="width: 100.0%; height: 100.0%;">             Time: 43330s<br>             Heading: 2.5°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.5°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_5c3b37ed4488edd07d0623e04752ed2d.setContent(html_539de654c11ab048b688941583721f63);
+            
+        
+
+        circle_marker_01950722e7bf52d4662aec6ee6f6c7a1.bindPopup(popup_5c3b37ed4488edd07d0623e04752ed2d)
+        ;
+
+        
+    
+    
+            var circle_marker_49f19cb844dd79ba0c8148c9ffc5f0d5 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_d88e57462795dc88ebf90c29dab64202 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_973462599192673da6b087ec986f0854 = $(`<div id="html_973462599192673da6b087ec986f0854" style="width: 100.0%; height: 100.0%;">             Time: 44358s<br>             Heading: 3.0°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.0°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_d88e57462795dc88ebf90c29dab64202.setContent(html_973462599192673da6b087ec986f0854);
+            
+        
+
+        circle_marker_49f19cb844dd79ba0c8148c9ffc5f0d5.bindPopup(popup_d88e57462795dc88ebf90c29dab64202)
+        ;
+
+        
+    
+    
+            var circle_marker_dc6dd480b05019da2731b8c4f62bdb67 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_719a3ede09b14936497f6bc99f8f6f55 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b61f17428f5acb95e0d0f74c7e200d78 = $(`<div id="html_b61f17428f5acb95e0d0f74c7e200d78" style="width: 100.0%; height: 100.0%;">             Time: 45421s<br>             Heading: 3.0°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_719a3ede09b14936497f6bc99f8f6f55.setContent(html_b61f17428f5acb95e0d0f74c7e200d78);
+            
+        
+
+        circle_marker_dc6dd480b05019da2731b8c4f62bdb67.bindPopup(popup_719a3ede09b14936497f6bc99f8f6f55)
+        ;
+
+        
+    
+    
+            var circle_marker_ad013e7f8400cef5d02a12720af93145 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_963c47a666eb107348a37ce30a956be2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_369d4ef49ad47ae469a3850e4a0b0804 = $(`<div id="html_369d4ef49ad47ae469a3850e4a0b0804" style="width: 100.0%; height: 100.0%;">             Time: 46452s<br>             Heading: 3.0°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_963c47a666eb107348a37ce30a956be2.setContent(html_369d4ef49ad47ae469a3850e4a0b0804);
+            
+        
+
+        circle_marker_ad013e7f8400cef5d02a12720af93145.bindPopup(popup_963c47a666eb107348a37ce30a956be2)
+        ;
+
+        
+    
+    
+            var circle_marker_2505a56e6df493ef6c90cd9e0c211921 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_b6b0cee8132b6cb1c7ab98901aa998dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_64270de6c30c3d727c27307a8100d63a = $(`<div id="html_64270de6c30c3d727c27307a8100d63a" style="width: 100.0%; height: 100.0%;">             Time: 47479s<br>             Heading: 4.0°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_b6b0cee8132b6cb1c7ab98901aa998dc.setContent(html_64270de6c30c3d727c27307a8100d63a);
+            
+        
+
+        circle_marker_2505a56e6df493ef6c90cd9e0c211921.bindPopup(popup_b6b0cee8132b6cb1c7ab98901aa998dc)
+        ;
+
+        
+    
+    
+            var circle_marker_491eec415ee80893018d3598189b9f8e = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_54b731328947fa8a1122286c32007135 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6e019c454cc2689f78cad16a3683752 = $(`<div id="html_c6e019c454cc2689f78cad16a3683752" style="width: 100.0%; height: 100.0%;">             Time: 48506s<br>             Heading: 3.4°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.6°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_54b731328947fa8a1122286c32007135.setContent(html_c6e019c454cc2689f78cad16a3683752);
+            
+        
+
+        circle_marker_491eec415ee80893018d3598189b9f8e.bindPopup(popup_54b731328947fa8a1122286c32007135)
+        ;
+
+        
+    
+    
+            var circle_marker_0c69c987d9a7146fbdbcfefd51c92c0a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_49028b011f3573ef19f975f33a16a8a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_947b2f15814c312542a98a860b5ab755 = $(`<div id="html_947b2f15814c312542a98a860b5ab755" style="width: 100.0%; height: 100.0%;">             Time: 49551s<br>             Heading: 3.9°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.1°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_49028b011f3573ef19f975f33a16a8a6.setContent(html_947b2f15814c312542a98a860b5ab755);
+            
+        
+
+        circle_marker_0c69c987d9a7146fbdbcfefd51c92c0a.bindPopup(popup_49028b011f3573ef19f975f33a16a8a6)
+        ;
+
+        
+    
+    
+            var circle_marker_20edb67c9e77f304a94714f49d26cbe4 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_4bfe9e591424f3a3420f5c0e7ecb4959 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4f05cbedbf10a28716b3fe3db9cdd2c = $(`<div id="html_b4f05cbedbf10a28716b3fe3db9cdd2c" style="width: 100.0%; height: 100.0%;">             Time: 50599s<br>             Heading: 3.0°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_4bfe9e591424f3a3420f5c0e7ecb4959.setContent(html_b4f05cbedbf10a28716b3fe3db9cdd2c);
+            
+        
+
+        circle_marker_20edb67c9e77f304a94714f49d26cbe4.bindPopup(popup_4bfe9e591424f3a3420f5c0e7ecb4959)
+        ;
+
+        
+    
+    
+            var circle_marker_fa3c080141323ef85d712e0a8640cdbd = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_c449d7e8615f996be5922e0b71b959cf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6d66dd9728755a4d57faaf7443cd4575 = $(`<div id="html_6d66dd9728755a4d57faaf7443cd4575" style="width: 100.0%; height: 100.0%;">             Time: 51631s<br>             Heading: 3.0°<br>             Wind Direction: 0.0°<br>             Relative Wind: 357.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_c449d7e8615f996be5922e0b71b959cf.setContent(html_6d66dd9728755a4d57faaf7443cd4575);
+            
+        
+
+        circle_marker_fa3c080141323ef85d712e0a8640cdbd.bindPopup(popup_c449d7e8615f996be5922e0b71b959cf)
+        ;
+
+        
+    
+    
+            var circle_marker_e737f3ce853df30a12aa97bccd46aa4c = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_0445115dad54e3b2fbe570376276babc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_695b81113f1d97f0bfe8e462c92a3be4 = $(`<div id="html_695b81113f1d97f0bfe8e462c92a3be4" style="width: 100.0%; height: 100.0%;">             Time: 52659s<br>             Heading: 3.1°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.9°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_0445115dad54e3b2fbe570376276babc.setContent(html_695b81113f1d97f0bfe8e462c92a3be4);
+            
+        
+
+        circle_marker_e737f3ce853df30a12aa97bccd46aa4c.bindPopup(popup_0445115dad54e3b2fbe570376276babc)
+        ;
+
+        
+    
+    
+            var circle_marker_480f1d77d8672d9a1b10352d4b385634 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_24bdc03346aa54fb9910c2a18ae42b9d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_68ef1c80ebc70ad906cf67ae00920624 = $(`<div id="html_68ef1c80ebc70ad906cf67ae00920624" style="width: 100.0%; height: 100.0%;">             Time: 53686s<br>             Heading: 3.1°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.9°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_24bdc03346aa54fb9910c2a18ae42b9d.setContent(html_68ef1c80ebc70ad906cf67ae00920624);
+            
+        
+
+        circle_marker_480f1d77d8672d9a1b10352d4b385634.bindPopup(popup_24bdc03346aa54fb9910c2a18ae42b9d)
+        ;
+
+        
+    
+    
+            var circle_marker_ef4e2ae5be810c311971870a3223c673 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_07db67d39888b81f3d4393f0244e9cbb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_081c05b802363ccdb4492da828d9ed1d = $(`<div id="html_081c05b802363ccdb4492da828d9ed1d" style="width: 100.0%; height: 100.0%;">             Time: 54713s<br>             Heading: 3.2°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_07db67d39888b81f3d4393f0244e9cbb.setContent(html_081c05b802363ccdb4492da828d9ed1d);
+            
+        
+
+        circle_marker_ef4e2ae5be810c311971870a3223c673.bindPopup(popup_07db67d39888b81f3d4393f0244e9cbb)
+        ;
+
+        
+    
+    
+            var circle_marker_a6cce2a2d610879031e350b5577682b0 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_0e26c0751ee53d41d4dd2575f44f8be2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3319cfa671e2def14b5095c8522c9c54 = $(`<div id="html_3319cfa671e2def14b5095c8522c9c54" style="width: 100.0%; height: 100.0%;">             Time: 55768s<br>             Heading: 3.2°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_0e26c0751ee53d41d4dd2575f44f8be2.setContent(html_3319cfa671e2def14b5095c8522c9c54);
+            
+        
+
+        circle_marker_a6cce2a2d610879031e350b5577682b0.bindPopup(popup_0e26c0751ee53d41d4dd2575f44f8be2)
+        ;
+
+        
+    
+    
+            var circle_marker_97cee7bfbff32f89cd327823465df70a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_d4f10798825e79798a679064b159f9a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f5889c87ebcd6eb4b97a7d276883700 = $(`<div id="html_0f5889c87ebcd6eb4b97a7d276883700" style="width: 100.0%; height: 100.0%;">             Time: 56796s<br>             Heading: 3.2°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 5<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_d4f10798825e79798a679064b159f9a2.setContent(html_0f5889c87ebcd6eb4b97a7d276883700);
+            
+        
+
+        circle_marker_97cee7bfbff32f89cd327823465df70a.bindPopup(popup_d4f10798825e79798a679064b159f9a2)
+        ;
+
+        
+    
+    
+            var circle_marker_d0c94c57a5f6c2026ca536e76890532f = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_54d29ef5d4076f7309b08cbd2dded22f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fe902982c144906d94fc334791b3e3bd = $(`<div id="html_fe902982c144906d94fc334791b3e3bd" style="width: 100.0%; height: 100.0%;">             Time: 57822s<br>             Heading: 3.2°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 5<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_54d29ef5d4076f7309b08cbd2dded22f.setContent(html_fe902982c144906d94fc334791b3e3bd);
+            
+        
+
+        circle_marker_d0c94c57a5f6c2026ca536e76890532f.bindPopup(popup_54d29ef5d4076f7309b08cbd2dded22f)
+        ;
+
+        
+    
+    
+            var circle_marker_441fa465e4540b7a43519cd64002b24c = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_ed1152e7b4f394a9dd8a214ed6c7dc50 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5fd7a14868c3e4ba3cbdc69da7a317d = $(`<div id="html_b5fd7a14868c3e4ba3cbdc69da7a317d" style="width: 100.0%; height: 100.0%;">             Time: 58849s<br>             Heading: 3.2°<br>             Wind Direction: 0.0°<br>             Relative Wind: 356.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_ed1152e7b4f394a9dd8a214ed6c7dc50.setContent(html_b5fd7a14868c3e4ba3cbdc69da7a317d);
+            
+        
+
+        circle_marker_441fa465e4540b7a43519cd64002b24c.bindPopup(popup_ed1152e7b4f394a9dd8a214ed6c7dc50)
+        ;
+
+        
+    
+    
+            var circle_marker_4452bf24e11c94c905839e92c9eb800a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_6c0cc38a1f0843da995cb4730d06f5c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_236c9282692290b08fe6e17c7aefb3fd = $(`<div id="html_236c9282692290b08fe6e17c7aefb3fd" style="width: 100.0%; height: 100.0%;">             Time: 59889s<br>             Heading: 3.2°<br>             Wind Direction: 323.0°<br>             Relative Wind: 319.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_6c0cc38a1f0843da995cb4730d06f5c7.setContent(html_236c9282692290b08fe6e17c7aefb3fd);
+            
+        
+
+        circle_marker_4452bf24e11c94c905839e92c9eb800a.bindPopup(popup_6c0cc38a1f0843da995cb4730d06f5c7)
+        ;
+
+        
+    
+    
+            var circle_marker_5d37fe3a5d43fa7fdc00b49aace903b8 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_a37d777fcd0822ad7798a628ad3be870 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4622c927e806e22a65a3cfd8f92b08ba = $(`<div id="html_4622c927e806e22a65a3cfd8f92b08ba" style="width: 100.0%; height: 100.0%;">             Time: 60947s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_a37d777fcd0822ad7798a628ad3be870.setContent(html_4622c927e806e22a65a3cfd8f92b08ba);
+            
+        
+
+        circle_marker_5d37fe3a5d43fa7fdc00b49aace903b8.bindPopup(popup_a37d777fcd0822ad7798a628ad3be870)
+        ;
+
+        
+    
+    
+            var circle_marker_9a586319d2a60e2d8eb20de92b417ec7 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_cb66b7b5b9129b169ff4fdb948a4cc26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_52f9c2979dc142f47eae035e891164e9 = $(`<div id="html_52f9c2979dc142f47eae035e891164e9" style="width: 100.0%; height: 100.0%;">             Time: 61978s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_cb66b7b5b9129b169ff4fdb948a4cc26.setContent(html_52f9c2979dc142f47eae035e891164e9);
+            
+        
+
+        circle_marker_9a586319d2a60e2d8eb20de92b417ec7.bindPopup(popup_cb66b7b5b9129b169ff4fdb948a4cc26)
+        ;
+
+        
+    
+    
+            var circle_marker_2374da2744ebc1b399d2148ac36c45a3 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_622c76ed5a5d62d3b9ccfbad6b3a1eeb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1bdd020d93dcdbdb927d198a913e945a = $(`<div id="html_1bdd020d93dcdbdb927d198a913e945a" style="width: 100.0%; height: 100.0%;">             Time: 63013s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_622c76ed5a5d62d3b9ccfbad6b3a1eeb.setContent(html_1bdd020d93dcdbdb927d198a913e945a);
+            
+        
+
+        circle_marker_2374da2744ebc1b399d2148ac36c45a3.bindPopup(popup_622c76ed5a5d62d3b9ccfbad6b3a1eeb)
+        ;
+
+        
+    
+    
+            var circle_marker_4116e3d50a4acfb0bcf67b662551bf84 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_47b6cadbb890b4201a2d0f980d6a6644 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf296c9798556225e7ba3190f1bfdce5 = $(`<div id="html_cf296c9798556225e7ba3190f1bfdce5" style="width: 100.0%; height: 100.0%;">             Time: 64059s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_47b6cadbb890b4201a2d0f980d6a6644.setContent(html_cf296c9798556225e7ba3190f1bfdce5);
+            
+        
+
+        circle_marker_4116e3d50a4acfb0bcf67b662551bf84.bindPopup(popup_47b6cadbb890b4201a2d0f980d6a6644)
+        ;
+
+        
+    
+    
+            var circle_marker_0d84ab9f193d1a85dd3229a635b58353 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_fd4ae75104f529170e91b06e6babf196 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_62e7adf43661887becabb01657ae571a = $(`<div id="html_62e7adf43661887becabb01657ae571a" style="width: 100.0%; height: 100.0%;">             Time: 65091s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_fd4ae75104f529170e91b06e6babf196.setContent(html_62e7adf43661887becabb01657ae571a);
+            
+        
+
+        circle_marker_0d84ab9f193d1a85dd3229a635b58353.bindPopup(popup_fd4ae75104f529170e91b06e6babf196)
+        ;
+
+        
+    
+    
+            var circle_marker_0601da83645976fdc00c377deeeadeef = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_b1fa9cc47bbd950e39f42306f53c8b93 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_28c113767842ea20af9b162143ce2c2e = $(`<div id="html_28c113767842ea20af9b162143ce2c2e" style="width: 100.0%; height: 100.0%;">             Time: 66158s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_b1fa9cc47bbd950e39f42306f53c8b93.setContent(html_28c113767842ea20af9b162143ce2c2e);
+            
+        
+
+        circle_marker_0601da83645976fdc00c377deeeadeef.bindPopup(popup_b1fa9cc47bbd950e39f42306f53c8b93)
+        ;
+
+        
+    
+    
+            var circle_marker_2c159b7556a0e755b9817a0a05ed385d = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_e676ff1076558d65df92c693ff1d097b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f3b79dff79b626cd6080b2a80b447761 = $(`<div id="html_f3b79dff79b626cd6080b2a80b447761" style="width: 100.0%; height: 100.0%;">             Time: 67194s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_e676ff1076558d65df92c693ff1d097b.setContent(html_f3b79dff79b626cd6080b2a80b447761);
+            
+        
+
+        circle_marker_2c159b7556a0e755b9817a0a05ed385d.bindPopup(popup_e676ff1076558d65df92c693ff1d097b)
+        ;
+
+        
+    
+    
+            var circle_marker_1599500d8df3a3c37637eccd0a4c49e7 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_154adea03ddda7b6f8bbf3f22e211f8e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_80b3323ed4c44784aa02e8a66c2364e0 = $(`<div id="html_80b3323ed4c44784aa02e8a66c2364e0" style="width: 100.0%; height: 100.0%;">             Time: 68227s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_154adea03ddda7b6f8bbf3f22e211f8e.setContent(html_80b3323ed4c44784aa02e8a66c2364e0);
+            
+        
+
+        circle_marker_1599500d8df3a3c37637eccd0a4c49e7.bindPopup(popup_154adea03ddda7b6f8bbf3f22e211f8e)
+        ;
+
+        
+    
+    
+            var circle_marker_28b749710d111faf84db088269163ac4 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_be47248c7bf20638802451730e424600 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_798c8fa4389f22ff60c4d0fa87a3900c = $(`<div id="html_798c8fa4389f22ff60c4d0fa87a3900c" style="width: 100.0%; height: 100.0%;">             Time: 69262s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_be47248c7bf20638802451730e424600.setContent(html_798c8fa4389f22ff60c4d0fa87a3900c);
+            
+        
+
+        circle_marker_28b749710d111faf84db088269163ac4.bindPopup(popup_be47248c7bf20638802451730e424600)
+        ;
+
+        
+    
+    
+            var circle_marker_7479d87f65ab212316549b3e42ca7524 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_43bae973d3996c649344a65848903012 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3725ebf309376d894141bc48095699df = $(`<div id="html_3725ebf309376d894141bc48095699df" style="width: 100.0%; height: 100.0%;">             Time: 70309s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_43bae973d3996c649344a65848903012.setContent(html_3725ebf309376d894141bc48095699df);
+            
+        
+
+        circle_marker_7479d87f65ab212316549b3e42ca7524.bindPopup(popup_43bae973d3996c649344a65848903012)
+        ;
+
+        
+    
+    
+            var circle_marker_6fd07a5b67a76dcde7108f130a50dbe2 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_f1c263ffcfc458e21995ed9a0e6e7c1f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb4e13b0eb9cb9aaf51ba0aeb5012d5e = $(`<div id="html_bb4e13b0eb9cb9aaf51ba0aeb5012d5e" style="width: 100.0%; height: 100.0%;">             Time: 71363s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_f1c263ffcfc458e21995ed9a0e6e7c1f.setContent(html_bb4e13b0eb9cb9aaf51ba0aeb5012d5e);
+            
+        
+
+        circle_marker_6fd07a5b67a76dcde7108f130a50dbe2.bindPopup(popup_f1c263ffcfc458e21995ed9a0e6e7c1f)
+        ;
+
+        
+    
+    
+            var circle_marker_286ce164746b88709cd12d44f4b7fed7 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_f7d4daa84c3dc6b6c749478b37e30997 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5a99a24868b88057049514541efde8fe = $(`<div id="html_5a99a24868b88057049514541efde8fe" style="width: 100.0%; height: 100.0%;">             Time: 72399s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_f7d4daa84c3dc6b6c749478b37e30997.setContent(html_5a99a24868b88057049514541efde8fe);
+            
+        
+
+        circle_marker_286ce164746b88709cd12d44f4b7fed7.bindPopup(popup_f7d4daa84c3dc6b6c749478b37e30997)
+        ;
+
+        
+    
+    
+            var circle_marker_afc76974d679cedc6169c243b6e1280c = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_0225e02a918c750bb497a828566053fa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_16fd12a520a41370b14ac1ba2389b812 = $(`<div id="html_16fd12a520a41370b14ac1ba2389b812" style="width: 100.0%; height: 100.0%;">             Time: 73433s<br>             Heading: 3.4°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.6°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_0225e02a918c750bb497a828566053fa.setContent(html_16fd12a520a41370b14ac1ba2389b812);
+            
+        
+
+        circle_marker_afc76974d679cedc6169c243b6e1280c.bindPopup(popup_0225e02a918c750bb497a828566053fa)
+        ;
+
+        
+    
+    
+            var circle_marker_a152b10231ff5f28398762af7f81ecee = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_6d9aed233be1849c8527705c8a82c89e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_76fe64b8f84d89127c93b95432755454 = $(`<div id="html_76fe64b8f84d89127c93b95432755454" style="width: 100.0%; height: 100.0%;">             Time: 74465s<br>             Heading: 3.3°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.7°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_6d9aed233be1849c8527705c8a82c89e.setContent(html_76fe64b8f84d89127c93b95432755454);
+            
+        
+
+        circle_marker_a152b10231ff5f28398762af7f81ecee.bindPopup(popup_6d9aed233be1849c8527705c8a82c89e)
+        ;
+
+        
+    
+    
+            var circle_marker_df916430f2381cc90de3da3cf22e2425 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_e1c83b89863380e312b17cd426054dbd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa74c44e237191f0e4a794b9aa71424a = $(`<div id="html_fa74c44e237191f0e4a794b9aa71424a" style="width: 100.0%; height: 100.0%;">             Time: 75502s<br>             Heading: 3.3°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.7°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_e1c83b89863380e312b17cd426054dbd.setContent(html_fa74c44e237191f0e4a794b9aa71424a);
+            
+        
+
+        circle_marker_df916430f2381cc90de3da3cf22e2425.bindPopup(popup_e1c83b89863380e312b17cd426054dbd)
+        ;
+
+        
+    
+    
+            var circle_marker_abf44539cb7795dbef259ebec6368b7b = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_268774ac086c12562f8ef51b914889f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_842ff6958363626f01ef518d04cf3bdd = $(`<div id="html_842ff6958363626f01ef518d04cf3bdd" style="width: 100.0%; height: 100.0%;">             Time: 76572s<br>             Heading: 3.3°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.7°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_268774ac086c12562f8ef51b914889f7.setContent(html_842ff6958363626f01ef518d04cf3bdd);
+            
+        
+
+        circle_marker_abf44539cb7795dbef259ebec6368b7b.bindPopup(popup_268774ac086c12562f8ef51b914889f7)
+        ;
+
+        
+    
+    
+            var circle_marker_4b28345c72ae97e90b91cda4290752f9 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_cc0e17297f0af48be4317b80caf236ae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_402653bf4e027a420ce1691c2ebad474 = $(`<div id="html_402653bf4e027a420ce1691c2ebad474" style="width: 100.0%; height: 100.0%;">             Time: 77605s<br>             Heading: 3.3°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.7°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_cc0e17297f0af48be4317b80caf236ae.setContent(html_402653bf4e027a420ce1691c2ebad474);
+            
+        
+
+        circle_marker_4b28345c72ae97e90b91cda4290752f9.bindPopup(popup_cc0e17297f0af48be4317b80caf236ae)
+        ;
+
+        
+    
+    
+            var circle_marker_dd0de25997f6010f3a654fa93cb708db = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_8dd4e674d2c299d3e72b03a57b8dbee0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_614e8397c279affd1995bd0e864e2472 = $(`<div id="html_614e8397c279affd1995bd0e864e2472" style="width: 100.0%; height: 100.0%;">             Time: 78639s<br>             Heading: 3.0°<br>             Wind Direction: 318.0°<br>             Relative Wind: 315.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_8dd4e674d2c299d3e72b03a57b8dbee0.setContent(html_614e8397c279affd1995bd0e864e2472);
+            
+        
+
+        circle_marker_dd0de25997f6010f3a654fa93cb708db.bindPopup(popup_8dd4e674d2c299d3e72b03a57b8dbee0)
+        ;
+
+        
+    
+    
+            var circle_marker_97f431506d03f126ccc4fa8c1483609b = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_2db51150698012a6e79191c52bf6f38a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_18389afe330042521c69a0096bd9d91e = $(`<div id="html_18389afe330042521c69a0096bd9d91e" style="width: 100.0%; height: 100.0%;">             Time: 79672s<br>             Heading: 3.3°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.7°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_2db51150698012a6e79191c52bf6f38a.setContent(html_18389afe330042521c69a0096bd9d91e);
+            
+        
+
+        circle_marker_97f431506d03f126ccc4fa8c1483609b.bindPopup(popup_2db51150698012a6e79191c52bf6f38a)
+        ;
+
+        
+    
+    
+            var circle_marker_9e8051bef2adc12810f803c548f5d0ce = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_54c2ecf23a03cd1ca08ad660b70d6d41 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ec14974799b60c4597e7c005785b1c5a = $(`<div id="html_ec14974799b60c4597e7c005785b1c5a" style="width: 100.0%; height: 100.0%;">             Time: 80718s<br>             Heading: 3.3°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.7°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_54c2ecf23a03cd1ca08ad660b70d6d41.setContent(html_ec14974799b60c4597e7c005785b1c5a);
+            
+        
+
+        circle_marker_9e8051bef2adc12810f803c548f5d0ce.bindPopup(popup_54c2ecf23a03cd1ca08ad660b70d6d41)
+        ;
+
+        
+    
+    
+            var circle_marker_d023875365a78ef9f964820bf23091d3 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_81c5869069ac320d0303aa863a70d8cc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9687e504c2edc1844ab39fe24cfbab67 = $(`<div id="html_9687e504c2edc1844ab39fe24cfbab67" style="width: 100.0%; height: 100.0%;">             Time: 81777s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_81c5869069ac320d0303aa863a70d8cc.setContent(html_9687e504c2edc1844ab39fe24cfbab67);
+            
+        
+
+        circle_marker_d023875365a78ef9f964820bf23091d3.bindPopup(popup_81c5869069ac320d0303aa863a70d8cc)
+        ;
+
+        
+    
+    
+            var circle_marker_c9403026a2739e5a6557067ec24abeaa = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_a4ca481d2ea7715f9173ea3f652f99c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3109d349b4b57082bbafc28fd8aaf0a3 = $(`<div id="html_3109d349b4b57082bbafc28fd8aaf0a3" style="width: 100.0%; height: 100.0%;">             Time: 82809s<br>             Heading: 3.2°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.8°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_a4ca481d2ea7715f9173ea3f652f99c7.setContent(html_3109d349b4b57082bbafc28fd8aaf0a3);
+            
+        
+
+        circle_marker_c9403026a2739e5a6557067ec24abeaa.bindPopup(popup_a4ca481d2ea7715f9173ea3f652f99c7)
+        ;
+
+        
+    
+    
+            var circle_marker_9c4d10e8dc8e2df393b48783996a442c = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_f4f7a1e1a02d8e33bf0bd959b92df4d8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_926f06ec5564af02c4767e84bd79f256 = $(`<div id="html_926f06ec5564af02c4767e84bd79f256" style="width: 100.0%; height: 100.0%;">             Time: 83843s<br>             Heading: 3.1°<br>             Wind Direction: 318.0°<br>             Relative Wind: 314.9°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 2.0°<br>             Target Sail: 2.0°<br>             Status: OK             </div>`)[0];
+                popup_f4f7a1e1a02d8e33bf0bd959b92df4d8.setContent(html_926f06ec5564af02c4767e84bd79f256);
+            
+        
+
+        circle_marker_9c4d10e8dc8e2df393b48783996a442c.bindPopup(popup_f4f7a1e1a02d8e33bf0bd959b92df4d8)
+        ;
+
+        
+    
+    
+            var circle_marker_e632e8d24391a67cbd254b27c2ac120c = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_f11270e1b56409743f88ef6b69a1e859 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f78e5d615ce124bae260f58a76570829 = $(`<div id="html_f78e5d615ce124bae260f58a76570829" style="width: 100.0%; height: 100.0%;">             Time: 84886s<br>             Heading: 0.5°<br>             Wind Direction: 317.0°<br>             Relative Wind: 316.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 6<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_f11270e1b56409743f88ef6b69a1e859.setContent(html_f78e5d615ce124bae260f58a76570829);
+            
+        
+
+        circle_marker_e632e8d24391a67cbd254b27c2ac120c.bindPopup(popup_f11270e1b56409743f88ef6b69a1e859)
+        ;
+
+        
+    
+    
+            var circle_marker_976f3caf6531626272d288c1dbd27d28 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_e8db0890eca04d3d3e469e5efde02266 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e26ed38493ec73d4464c00ae730da86 = $(`<div id="html_7e26ed38493ec73d4464c00ae730da86" style="width: 100.0%; height: 100.0%;">             Time: 85915s<br>             Heading: 0.6°<br>             Wind Direction: 317.0°<br>             Relative Wind: 316.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_e8db0890eca04d3d3e469e5efde02266.setContent(html_7e26ed38493ec73d4464c00ae730da86);
+            
+        
+
+        circle_marker_976f3caf6531626272d288c1dbd27d28.bindPopup(popup_e8db0890eca04d3d3e469e5efde02266)
+        ;
+
+        
+    
+    
+            var circle_marker_17c3c1ae3c8ceb7c682e6c3a8001c71c = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_463c57283e499d7e80e4954f793dc048 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b820cce4b26fa2341c46789e4de1e8c8 = $(`<div id="html_b820cce4b26fa2341c46789e4de1e8c8" style="width: 100.0%; height: 100.0%;">             Time: 86980s<br>             Heading: 0.5°<br>             Wind Direction: 317.0°<br>             Relative Wind: 316.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_463c57283e499d7e80e4954f793dc048.setContent(html_b820cce4b26fa2341c46789e4de1e8c8);
+            
+        
+
+        circle_marker_17c3c1ae3c8ceb7c682e6c3a8001c71c.bindPopup(popup_463c57283e499d7e80e4954f793dc048)
+        ;
+
+        
+    
+    
+            var circle_marker_925d6bb719e74615ccb6e99b6e00a37a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_3b2de7210e9eb863e44229a42e2b14d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8105be26fbf27474a0d6984cc63b8c7d = $(`<div id="html_8105be26fbf27474a0d6984cc63b8c7d" style="width: 100.0%; height: 100.0%;">             Time: 88011s<br>             Heading: 0.5°<br>             Wind Direction: 317.0°<br>             Relative Wind: 316.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_3b2de7210e9eb863e44229a42e2b14d5.setContent(html_8105be26fbf27474a0d6984cc63b8c7d);
+            
+        
+
+        circle_marker_925d6bb719e74615ccb6e99b6e00a37a.bindPopup(popup_3b2de7210e9eb863e44229a42e2b14d5)
+        ;
+
+        
+    
+    
+            var circle_marker_0c6afd510ba26bd9d55e2b5c4a9f94b1 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_28c06b1de83c0ff42cc6d12d4ff23679 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_06e9289130135cda8fdc3482d92b120b = $(`<div id="html_06e9289130135cda8fdc3482d92b120b" style="width: 100.0%; height: 100.0%;">             Time: 89038s<br>             Heading: 0.5°<br>             Wind Direction: 321.0°<br>             Relative Wind: 320.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_28c06b1de83c0ff42cc6d12d4ff23679.setContent(html_06e9289130135cda8fdc3482d92b120b);
+            
+        
+
+        circle_marker_0c6afd510ba26bd9d55e2b5c4a9f94b1.bindPopup(popup_28c06b1de83c0ff42cc6d12d4ff23679)
+        ;
+
+        
+    
+    
+            var circle_marker_3a6f0ddc97867b85072eb0d4ac509bca = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_60f9adca260767f3cf4532b19d493a35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5aa5d06ff8c6762875c340545c802cac = $(`<div id="html_5aa5d06ff8c6762875c340545c802cac" style="width: 100.0%; height: 100.0%;">             Time: 90065s<br>             Heading: 0.5°<br>             Wind Direction: 7.0°<br>             Relative Wind: 6.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_60f9adca260767f3cf4532b19d493a35.setContent(html_5aa5d06ff8c6762875c340545c802cac);
+            
+        
+
+        circle_marker_3a6f0ddc97867b85072eb0d4ac509bca.bindPopup(popup_60f9adca260767f3cf4532b19d493a35)
+        ;
+
+        
+    
+    
+            var circle_marker_25efdc51b6bc24114333b3fb7db79f5e = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_5b9b75ea808de74a70e2fb8076ae8048 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_234748cbeadd0e6d6c9e9435b119d0cb = $(`<div id="html_234748cbeadd0e6d6c9e9435b119d0cb" style="width: 100.0%; height: 100.0%;">             Time: 91108s<br>             Heading: 0.5°<br>             Wind Direction: 33.0°<br>             Relative Wind: 32.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_5b9b75ea808de74a70e2fb8076ae8048.setContent(html_234748cbeadd0e6d6c9e9435b119d0cb);
+            
+        
+
+        circle_marker_25efdc51b6bc24114333b3fb7db79f5e.bindPopup(popup_5b9b75ea808de74a70e2fb8076ae8048)
+        ;
+
+        
+    
+    
+            var circle_marker_a02f961f79ba5852b77fe7996e6c0206 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_a898fc0b6ee9a0c702f5749e11eaa83c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02db967067bc5fbc470aedb9a5aee0ec = $(`<div id="html_02db967067bc5fbc470aedb9a5aee0ec" style="width: 100.0%; height: 100.0%;">             Time: 92158s<br>             Heading: 0.5°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_a898fc0b6ee9a0c702f5749e11eaa83c.setContent(html_02db967067bc5fbc470aedb9a5aee0ec);
+            
+        
+
+        circle_marker_a02f961f79ba5852b77fe7996e6c0206.bindPopup(popup_a898fc0b6ee9a0c702f5749e11eaa83c)
+        ;
+
+        
+    
+    
+            var circle_marker_72742b5f06f85c32bb204a8976e550c9 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_3a3ace7e28185c630e88ccdece6691ee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d2159644a2c9b0f097bd666b55546e85 = $(`<div id="html_d2159644a2c9b0f097bd666b55546e85" style="width: 100.0%; height: 100.0%;">             Time: 93187s<br>             Heading: 0.5°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_3a3ace7e28185c630e88ccdece6691ee.setContent(html_d2159644a2c9b0f097bd666b55546e85);
+            
+        
+
+        circle_marker_72742b5f06f85c32bb204a8976e550c9.bindPopup(popup_3a3ace7e28185c630e88ccdece6691ee)
+        ;
+
+        
+    
+    
+            var circle_marker_d336b05cfd0aa108e9836b2d5047f2e2 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_400411e298ee187174b2ea22bc9ebbdb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4667ab73047c428287ae475c4dcf11ec = $(`<div id="html_4667ab73047c428287ae475c4dcf11ec" style="width: 100.0%; height: 100.0%;">             Time: 94217s<br>             Heading: 0.5°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_400411e298ee187174b2ea22bc9ebbdb.setContent(html_4667ab73047c428287ae475c4dcf11ec);
+            
+        
+
+        circle_marker_d336b05cfd0aa108e9836b2d5047f2e2.bindPopup(popup_400411e298ee187174b2ea22bc9ebbdb)
+        ;
+
+        
+    
+    
+            var circle_marker_1d2fb383ba5f5a445a5eb6a3a5715536 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_8cdf65ebab6a4af2ab58e6600febcefd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cc925c898c767ccc0961159521f3a8ce = $(`<div id="html_cc925c898c767ccc0961159521f3a8ce" style="width: 100.0%; height: 100.0%;">             Time: 95259s<br>             Heading: 0.6°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_8cdf65ebab6a4af2ab58e6600febcefd.setContent(html_cc925c898c767ccc0961159521f3a8ce);
+            
+        
+
+        circle_marker_1d2fb383ba5f5a445a5eb6a3a5715536.bindPopup(popup_8cdf65ebab6a4af2ab58e6600febcefd)
+        ;
+
+        
+    
+    
+            var circle_marker_e8d5b199a95f8845e5e7f591e93f9d0f = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_6fbf46ce513f08aacb70d137edb8c065 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b0db6b89939639058829fa3ebc4d5bd8 = $(`<div id="html_b0db6b89939639058829fa3ebc4d5bd8" style="width: 100.0%; height: 100.0%;">             Time: 96287s<br>             Heading: 0.6°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_6fbf46ce513f08aacb70d137edb8c065.setContent(html_b0db6b89939639058829fa3ebc4d5bd8);
+            
+        
+
+        circle_marker_e8d5b199a95f8845e5e7f591e93f9d0f.bindPopup(popup_6fbf46ce513f08aacb70d137edb8c065)
+        ;
+
+        
+    
+    
+            var circle_marker_5e10285432866def3e8491b7a352f8fb = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_8f71cab58ef11b5a41635e6579fe8642 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e7756db91c5454767b34c0abde1bdd40 = $(`<div id="html_e7756db91c5454767b34c0abde1bdd40" style="width: 100.0%; height: 100.0%;">             Time: 97339s<br>             Heading: 0.6°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_8f71cab58ef11b5a41635e6579fe8642.setContent(html_e7756db91c5454767b34c0abde1bdd40);
+            
+        
+
+        circle_marker_5e10285432866def3e8491b7a352f8fb.bindPopup(popup_8f71cab58ef11b5a41635e6579fe8642)
+        ;
+
+        
+    
+    
+            var circle_marker_005e094d2fb29886fe28ba2c78ff1109 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_e7ca0fb3d7d2df95da627cba434397d8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_07a9c4335f390908a32c288bd38cfd95 = $(`<div id="html_07a9c4335f390908a32c288bd38cfd95" style="width: 100.0%; height: 100.0%;">             Time: 98368s<br>             Heading: 0.7°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_e7ca0fb3d7d2df95da627cba434397d8.setContent(html_07a9c4335f390908a32c288bd38cfd95);
+            
+        
+
+        circle_marker_005e094d2fb29886fe28ba2c78ff1109.bindPopup(popup_e7ca0fb3d7d2df95da627cba434397d8)
+        ;
+
+        
+    
+    
+            var circle_marker_aa06373e9fa79c5cb895b71408ac427e = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_632ff90e48b75c3bfd7c5b3b9e03cefd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c82d29442b92a7f043654afdb5c634d4 = $(`<div id="html_c82d29442b92a7f043654afdb5c634d4" style="width: 100.0%; height: 100.0%;">             Time: 99396s<br>             Heading: 0.7°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_632ff90e48b75c3bfd7c5b3b9e03cefd.setContent(html_c82d29442b92a7f043654afdb5c634d4);
+            
+        
+
+        circle_marker_aa06373e9fa79c5cb895b71408ac427e.bindPopup(popup_632ff90e48b75c3bfd7c5b3b9e03cefd)
+        ;
+
+        
+    
+    
+            var circle_marker_83e39e11ff64998c3ab63aa2e9df333f = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_6a1daaf26ed315c6ef57461a3b7b67b4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1c8bd47a2747598fe05aba50154ab90 = $(`<div id="html_e1c8bd47a2747598fe05aba50154ab90" style="width: 100.0%; height: 100.0%;">             Time: 100428s<br>             Heading: 0.7°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_6a1daaf26ed315c6ef57461a3b7b67b4.setContent(html_e1c8bd47a2747598fe05aba50154ab90);
+            
+        
+
+        circle_marker_83e39e11ff64998c3ab63aa2e9df333f.bindPopup(popup_6a1daaf26ed315c6ef57461a3b7b67b4)
+        ;
+
+        
+    
+    
+            var circle_marker_9918735610ebc342b5d1cc5cdf09a5a9 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_649cb58b1399acee2ed3fc860da9f703 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d42c150fa182da5c46477e1ee7c341bc = $(`<div id="html_d42c150fa182da5c46477e1ee7c341bc" style="width: 100.0%; height: 100.0%;">             Time: 101470s<br>             Heading: 0.7°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_649cb58b1399acee2ed3fc860da9f703.setContent(html_d42c150fa182da5c46477e1ee7c341bc);
+            
+        
+
+        circle_marker_9918735610ebc342b5d1cc5cdf09a5a9.bindPopup(popup_649cb58b1399acee2ed3fc860da9f703)
+        ;
+
+        
+    
+    
+            var circle_marker_e22c480ca97ef4a5133142e3ddbbf1a1 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_7c54b98a90a2f7a2c821371f4d8b635f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9657a4beafe1588bfc7c63310828a4a8 = $(`<div id="html_9657a4beafe1588bfc7c63310828a4a8" style="width: 100.0%; height: 100.0%;">             Time: 102521s<br>             Heading: 0.7°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_7c54b98a90a2f7a2c821371f4d8b635f.setContent(html_9657a4beafe1588bfc7c63310828a4a8);
+            
+        
+
+        circle_marker_e22c480ca97ef4a5133142e3ddbbf1a1.bindPopup(popup_7c54b98a90a2f7a2c821371f4d8b635f)
+        ;
+
+        
+    
+    
+            var circle_marker_14604d51d3acc03a66773e78adf05b14 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_d295e1b728583ac8f4564b0f16b33a4d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0e3b9c48f37ee03540cced702c307b95 = $(`<div id="html_0e3b9c48f37ee03540cced702c307b95" style="width: 100.0%; height: 100.0%;">             Time: 103549s<br>             Heading: 0.7°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_d295e1b728583ac8f4564b0f16b33a4d.setContent(html_0e3b9c48f37ee03540cced702c307b95);
+            
+        
+
+        circle_marker_14604d51d3acc03a66773e78adf05b14.bindPopup(popup_d295e1b728583ac8f4564b0f16b33a4d)
+        ;
+
+        
+    
+    
+            var circle_marker_a8e0a97fb1617818deb3055372505943 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_7d9b59e71bffa289c05ee267edee8af6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_52d144aebe8bf21706937537ae87be33 = $(`<div id="html_52d144aebe8bf21706937537ae87be33" style="width: 100.0%; height: 100.0%;">             Time: 104578s<br>             Heading: 0.7°<br>             Wind Direction: 35.0°<br>             Relative Wind: 34.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_7d9b59e71bffa289c05ee267edee8af6.setContent(html_52d144aebe8bf21706937537ae87be33);
+            
+        
+
+        circle_marker_a8e0a97fb1617818deb3055372505943.bindPopup(popup_7d9b59e71bffa289c05ee267edee8af6)
+        ;
+
+        
+    
+    
+            var circle_marker_10a7a23c27fc31a69fabeec0ccceb5c8 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_57b4c5d0461509ce3c0a87be38f3aa6c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b998169f756d3765688e3e5c9f864184 = $(`<div id="html_b998169f756d3765688e3e5c9f864184" style="width: 100.0%; height: 100.0%;">             Time: 105620s<br>             Heading: 0.7°<br>             Wind Direction: 34.0°<br>             Relative Wind: 33.3°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_57b4c5d0461509ce3c0a87be38f3aa6c.setContent(html_b998169f756d3765688e3e5c9f864184);
+            
+        
+
+        circle_marker_10a7a23c27fc31a69fabeec0ccceb5c8.bindPopup(popup_57b4c5d0461509ce3c0a87be38f3aa6c)
+        ;
+
+        
+    
+    
+            var circle_marker_b32c90b839c3e7dd1b091c053300156a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_32e23ce5412e8439b01efbfcaa2d93fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f6c7654af8affe4d236ae68e199059c = $(`<div id="html_5f6c7654af8affe4d236ae68e199059c" style="width: 100.0%; height: 100.0%;">             Time: 106651s<br>             Heading: 0.8°<br>             Wind Direction: 32.0°<br>             Relative Wind: 31.2°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_32e23ce5412e8439b01efbfcaa2d93fe.setContent(html_5f6c7654af8affe4d236ae68e199059c);
+            
+        
+
+        circle_marker_b32c90b839c3e7dd1b091c053300156a.bindPopup(popup_32e23ce5412e8439b01efbfcaa2d93fe)
+        ;
+
+        
+    
+    
+            var circle_marker_dcef226548b633226316dd908e1f9642 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_cd3247d59ecec3fe87f840ddd598c4f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6dca057b9eb38ad11a871313495e830f = $(`<div id="html_6dca057b9eb38ad11a871313495e830f" style="width: 100.0%; height: 100.0%;">             Time: 107716s<br>             Heading: 0.8°<br>             Wind Direction: 31.0°<br>             Relative Wind: 30.2°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_cd3247d59ecec3fe87f840ddd598c4f5.setContent(html_6dca057b9eb38ad11a871313495e830f);
+            
+        
+
+        circle_marker_dcef226548b633226316dd908e1f9642.bindPopup(popup_cd3247d59ecec3fe87f840ddd598c4f5)
+        ;
+
+        
+    
+    
+            var circle_marker_27096e775a76f9b14f02950b8efe3f64 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_c6ccd59f18ba7d12aabd52546595acbd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2187dc359657c86ede6d5173e187b7db = $(`<div id="html_2187dc359657c86ede6d5173e187b7db" style="width: 100.0%; height: 100.0%;">             Time: 108744s<br>             Heading: 0.8°<br>             Wind Direction: 31.0°<br>             Relative Wind: 30.2°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_c6ccd59f18ba7d12aabd52546595acbd.setContent(html_2187dc359657c86ede6d5173e187b7db);
+            
+        
+
+        circle_marker_27096e775a76f9b14f02950b8efe3f64.bindPopup(popup_c6ccd59f18ba7d12aabd52546595acbd)
+        ;
+
+        
+    
+    
+            var circle_marker_ca3a4eb59adbe0dc37f8e7afdf42ea30 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_4e5fa8e8974fcb48d948b6aa1f0c528c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0c5917c5b6975154c1dd1b3b2462d8ca = $(`<div id="html_0c5917c5b6975154c1dd1b3b2462d8ca" style="width: 100.0%; height: 100.0%;">             Time: 109772s<br>             Heading: 1.0°<br>             Wind Direction: 30.0°<br>             Relative Wind: 29.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_4e5fa8e8974fcb48d948b6aa1f0c528c.setContent(html_0c5917c5b6975154c1dd1b3b2462d8ca);
+            
+        
+
+        circle_marker_ca3a4eb59adbe0dc37f8e7afdf42ea30.bindPopup(popup_4e5fa8e8974fcb48d948b6aa1f0c528c)
+        ;
+
+        
+    
+    
+            var circle_marker_1c5d080554b8535e59d06f5dc7c4927a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_4fc2112a48595e21da5a110368e371f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5662e5f7519e387968a3a839a733dc45 = $(`<div id="html_5662e5f7519e387968a3a839a733dc45" style="width: 100.0%; height: 100.0%;">             Time: 110800s<br>             Heading: 1.9°<br>             Wind Direction: 30.0°<br>             Relative Wind: 28.1°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_4fc2112a48595e21da5a110368e371f5.setContent(html_5662e5f7519e387968a3a839a733dc45);
+            
+        
+
+        circle_marker_1c5d080554b8535e59d06f5dc7c4927a.bindPopup(popup_4fc2112a48595e21da5a110368e371f5)
+        ;
+
+        
+    
+    
+            var circle_marker_187de843ec2b1eeaa1767e488621a490 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_44e359ba839ab681fb2d9cd3575cfef2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1aa7edf8f52b2c3e6a400c5ad27d45e5 = $(`<div id="html_1aa7edf8f52b2c3e6a400c5ad27d45e5" style="width: 100.0%; height: 100.0%;">             Time: 111832s<br>             Heading: 1.9°<br>             Wind Direction: 29.0°<br>             Relative Wind: 27.1°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_44e359ba839ab681fb2d9cd3575cfef2.setContent(html_1aa7edf8f52b2c3e6a400c5ad27d45e5);
+            
+        
+
+        circle_marker_187de843ec2b1eeaa1767e488621a490.bindPopup(popup_44e359ba839ab681fb2d9cd3575cfef2)
+        ;
+
+        
+    
+    
+            var circle_marker_9ca282532be186195b5349ca2e4d56a8 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_16c5eadb4b3d3307991486a569c1b974 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e41c839ddcbcd440fa514ee0e4ae6386 = $(`<div id="html_e41c839ddcbcd440fa514ee0e4ae6386" style="width: 100.0%; height: 100.0%;">             Time: 112880s<br>             Heading: 2.0°<br>             Wind Direction: 29.0°<br>             Relative Wind: 27.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_16c5eadb4b3d3307991486a569c1b974.setContent(html_e41c839ddcbcd440fa514ee0e4ae6386);
+            
+        
+
+        circle_marker_9ca282532be186195b5349ca2e4d56a8.bindPopup(popup_16c5eadb4b3d3307991486a569c1b974)
+        ;
+
+        
+    
+    
+            var circle_marker_857d07babafc52fec0bab58270adcd00 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_2f1278a574d94b48a0e77006f5b45639 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d4a33f4cdc1c5e68567955a0ded5c392 = $(`<div id="html_d4a33f4cdc1c5e68567955a0ded5c392" style="width: 100.0%; height: 100.0%;">             Time: 113910s<br>             Heading: 2.0°<br>             Wind Direction: 29.0°<br>             Relative Wind: 27.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_2f1278a574d94b48a0e77006f5b45639.setContent(html_d4a33f4cdc1c5e68567955a0ded5c392);
+            
+        
+
+        circle_marker_857d07babafc52fec0bab58270adcd00.bindPopup(popup_2f1278a574d94b48a0e77006f5b45639)
+        ;
+
+        
+    
+    
+            var circle_marker_d3c02456de114fd3923643961bc521f3 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_60a7997839b4eb4da51c9dde2cc072c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9052c572beb7a0b0a49043f587f333c7 = $(`<div id="html_9052c572beb7a0b0a49043f587f333c7" style="width: 100.0%; height: 100.0%;">             Time: 114938s<br>             Heading: 2.0°<br>             Wind Direction: 29.0°<br>             Relative Wind: 27.0°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_60a7997839b4eb4da51c9dde2cc072c5.setContent(html_9052c572beb7a0b0a49043f587f333c7);
+            
+        
+
+        circle_marker_d3c02456de114fd3923643961bc521f3.bindPopup(popup_60a7997839b4eb4da51c9dde2cc072c5)
+        ;
+
+        
+    
+    
+            var circle_marker_335d5ee343b2ef9faf9c3507b31fedb9 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_9d39240ea5392c363de71fd841dd2111 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03117c18281f9537b40f4af5258165a1 = $(`<div id="html_03117c18281f9537b40f4af5258165a1" style="width: 100.0%; height: 100.0%;">             Time: 115980s<br>             Heading: 2.3°<br>             Wind Direction: 29.0°<br>             Relative Wind: 26.7°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_9d39240ea5392c363de71fd841dd2111.setContent(html_03117c18281f9537b40f4af5258165a1);
+            
+        
+
+        circle_marker_335d5ee343b2ef9faf9c3507b31fedb9.bindPopup(popup_9d39240ea5392c363de71fd841dd2111)
+        ;
+
+        
+    
+    
+            var circle_marker_b0f8cc5fc6f39b8effb05f6225500109 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_3a2494dd7a68d6f40e94c3ddca7fa173 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8aaba18db02e9bf4799a5a49302c5d50 = $(`<div id="html_8aaba18db02e9bf4799a5a49302c5d50" style="width: 100.0%; height: 100.0%;">             Time: 117011s<br>             Heading: 2.3°<br>             Wind Direction: 29.0°<br>             Relative Wind: 26.7°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_3a2494dd7a68d6f40e94c3ddca7fa173.setContent(html_8aaba18db02e9bf4799a5a49302c5d50);
+            
+        
+
+        circle_marker_b0f8cc5fc6f39b8effb05f6225500109.bindPopup(popup_3a2494dd7a68d6f40e94c3ddca7fa173)
+        ;
+
+        
+    
+    
+            var circle_marker_668033ff2824ad914e42cb53edd6270a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_bb8558522a880f0749025211f55fa935 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13bcf0e5880baad6021704a7516f5ad1 = $(`<div id="html_13bcf0e5880baad6021704a7516f5ad1" style="width: 100.0%; height: 100.0%;">             Time: 118073s<br>             Heading: 2.4°<br>             Wind Direction: 29.0°<br>             Relative Wind: 26.6°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_bb8558522a880f0749025211f55fa935.setContent(html_13bcf0e5880baad6021704a7516f5ad1);
+            
+        
+
+        circle_marker_668033ff2824ad914e42cb53edd6270a.bindPopup(popup_bb8558522a880f0749025211f55fa935)
+        ;
+
+        
+    
+    
+            var circle_marker_d3ce4d8ef7883becdcba2b62cefcc472 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_d279620a892091786c7a73d7352a57ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_385369a825177a51e957d84ece6c736c = $(`<div id="html_385369a825177a51e957d84ece6c736c" style="width: 100.0%; height: 100.0%;">             Time: 119102s<br>             Heading: 2.4°<br>             Wind Direction: 305.0°<br>             Relative Wind: 302.6°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 26.0°<br>             Target Sail: 26.0°<br>             Status: OK             </div>`)[0];
+                popup_d279620a892091786c7a73d7352a57ca.setContent(html_385369a825177a51e957d84ece6c736c);
+            
+        
+
+        circle_marker_d3ce4d8ef7883becdcba2b62cefcc472.bindPopup(popup_d279620a892091786c7a73d7352a57ca)
+        ;
+
+        
+    
+    
+            var circle_marker_60ab23aa671b63e630ad94277b78de24 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_02e88406efac4f2813e5ee58772197a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b829f5f8383d66e571bf46bc02911696 = $(`<div id="html_b829f5f8383d66e571bf46bc02911696" style="width: 100.0%; height: 100.0%;">             Time: 120135s<br>             Heading: 2.3°<br>             Wind Direction: 174.0°<br>             Relative Wind: 171.7°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 180.0°<br>             Target Sail: 180.0°<br>             Status: OK             </div>`)[0];
+                popup_02e88406efac4f2813e5ee58772197a2.setContent(html_b829f5f8383d66e571bf46bc02911696);
+            
+        
+
+        circle_marker_60ab23aa671b63e630ad94277b78de24.bindPopup(popup_02e88406efac4f2813e5ee58772197a2)
+        ;
+
+        
+    
+    
+            var circle_marker_715e575d8a224a54a53b6632529d1dbb = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_c0959bc479450b0d6a87e4046dba452a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3a5a3891054a8744227942d14f22f0d6 = $(`<div id="html_3a5a3891054a8744227942d14f22f0d6" style="width: 100.0%; height: 100.0%;">             Time: 121167s<br>             Heading: 2.6°<br>             Wind Direction: 329.0°<br>             Relative Wind: 326.4°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_c0959bc479450b0d6a87e4046dba452a.setContent(html_3a5a3891054a8744227942d14f22f0d6);
+            
+        
+
+        circle_marker_715e575d8a224a54a53b6632529d1dbb.bindPopup(popup_c0959bc479450b0d6a87e4046dba452a)
+        ;
+
+        
+    
+    
+            var circle_marker_0aba49d0d82a9ee6eb74d29b31422f49 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_a522da98bdf0a60ff5662e723db51321 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_382a9f26da81746e0f74d86ec5bd23ac = $(`<div id="html_382a9f26da81746e0f74d86ec5bd23ac" style="width: 100.0%; height: 100.0%;">             Time: 122199s<br>             Heading: 2.4°<br>             Wind Direction: 336.0°<br>             Relative Wind: 333.6°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_a522da98bdf0a60ff5662e723db51321.setContent(html_382a9f26da81746e0f74d86ec5bd23ac);
+            
+        
+
+        circle_marker_0aba49d0d82a9ee6eb74d29b31422f49.bindPopup(popup_a522da98bdf0a60ff5662e723db51321)
+        ;
+
+        
+    
+    
+            var circle_marker_86f90326caf8cf3cb181e1da90dbcff2 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_7a39138b0239578f221705da7a723a25 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f84de5892d7832152ed46d432b9d69f = $(`<div id="html_6f84de5892d7832152ed46d432b9d69f" style="width: 100.0%; height: 100.0%;">             Time: 123247s<br>             Heading: 2.5°<br>             Wind Direction: 340.0°<br>             Relative Wind: 337.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_7a39138b0239578f221705da7a723a25.setContent(html_6f84de5892d7832152ed46d432b9d69f);
+            
+        
+
+        circle_marker_86f90326caf8cf3cb181e1da90dbcff2.bindPopup(popup_7a39138b0239578f221705da7a723a25)
+        ;
+
+        
+    
+    
+            var circle_marker_0d102b8fb2d79aafd6defbdb51a66327 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_14004bb921a9c49317344b582f25cf35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8869948454e59aaa6320b4edae39da6 = $(`<div id="html_d8869948454e59aaa6320b4edae39da6" style="width: 100.0%; height: 100.0%;">             Time: 124275s<br>             Heading: 2.5°<br>             Wind Direction: 350.0°<br>             Relative Wind: 347.5°<br>             Wind Speed: 0.0 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_14004bb921a9c49317344b582f25cf35.setContent(html_d8869948454e59aaa6320b4edae39da6);
+            
+        
+
+        circle_marker_0d102b8fb2d79aafd6defbdb51a66327.bindPopup(popup_14004bb921a9c49317344b582f25cf35)
+        ;
+
+        
+    
+    
+            var circle_marker_09c9cd7a876fb15b8b5b7fa3d23a1902 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_48ed4e8f3a2532d60095144a20b9e59d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_31380bf66daf87e65abd6fd19bb01b5b = $(`<div id="html_31380bf66daf87e65abd6fd19bb01b5b" style="width: 100.0%; height: 100.0%;">             Time: 125305s<br>             Heading: 2.5°<br>             Wind Direction: 351.0°<br>             Relative Wind: 348.5°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_48ed4e8f3a2532d60095144a20b9e59d.setContent(html_31380bf66daf87e65abd6fd19bb01b5b);
+            
+        
+
+        circle_marker_09c9cd7a876fb15b8b5b7fa3d23a1902.bindPopup(popup_48ed4e8f3a2532d60095144a20b9e59d)
+        ;
+
+        
+    
+    
+            var circle_marker_a7421b4502b86b3d7233c4e4beaab8ac = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_8815795851d1d3259ef0733f094e3eb1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_beb9a182af5913859896a12cf8be0e68 = $(`<div id="html_beb9a182af5913859896a12cf8be0e68" style="width: 100.0%; height: 100.0%;">             Time: 126349s<br>             Heading: 2.5°<br>             Wind Direction: 5.0°<br>             Relative Wind: 2.5°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 0.0°<br>             Target Sail: 0.0°<br>             Status: OK             </div>`)[0];
+                popup_8815795851d1d3259ef0733f094e3eb1.setContent(html_beb9a182af5913859896a12cf8be0e68);
+            
+        
+
+        circle_marker_a7421b4502b86b3d7233c4e4beaab8ac.bindPopup(popup_8815795851d1d3259ef0733f094e3eb1)
+        ;
+
+        
+    
+    
+            var circle_marker_290da117e8350e9bae4d3bbd67a739c1 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_2647cdd55b1042b41baa051c9eb650c3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f54b8518556053125def8adacdb39827 = $(`<div id="html_f54b8518556053125def8adacdb39827" style="width: 100.0%; height: 100.0%;">             Time: 127382s<br>             Heading: 2.5°<br>             Wind Direction: 78.0°<br>             Relative Wind: 75.5°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 60.0°<br>             Target Sail: 60.0°<br>             Status: OK             </div>`)[0];
+                popup_2647cdd55b1042b41baa051c9eb650c3.setContent(html_f54b8518556053125def8adacdb39827);
+            
+        
+
+        circle_marker_290da117e8350e9bae4d3bbd67a739c1.bindPopup(popup_2647cdd55b1042b41baa051c9eb650c3)
+        ;
+
+        
+    
+    
+            var circle_marker_f382eb507070a12a7fdacc7075e61284 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_44cc18b68cb24f1f92d487680e24c443 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5bd62a2445910dd7b39483d9831ea602 = $(`<div id="html_5bd62a2445910dd7b39483d9831ea602" style="width: 100.0%; height: 100.0%;">             Time: 128448s<br>             Heading: 2.5°<br>             Wind Direction: 93.0°<br>             Relative Wind: 90.5°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 90.0°<br>             Target Sail: 90.0°<br>             Status: OK             </div>`)[0];
+                popup_44cc18b68cb24f1f92d487680e24c443.setContent(html_5bd62a2445910dd7b39483d9831ea602);
+            
+        
+
+        circle_marker_f382eb507070a12a7fdacc7075e61284.bindPopup(popup_44cc18b68cb24f1f92d487680e24c443)
+        ;
+
+        
+    
+    
+            var circle_marker_f487b54f57a09c5c7e3427bbdd32011d = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_2a3f039b715fc900fa5d4099449a19a7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_28e667c5f0f21cc272c9eb2649dd5aef = $(`<div id="html_28e667c5f0f21cc272c9eb2649dd5aef" style="width: 100.0%; height: 100.0%;">             Time: 129480s<br>             Heading: 2.5°<br>             Wind Direction: 105.0°<br>             Relative Wind: 102.5°<br>             Wind Speed: 0.48 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 114.0°<br>             Target Sail: 114.0°<br>             Status: OK             </div>`)[0];
+                popup_2a3f039b715fc900fa5d4099449a19a7.setContent(html_28e667c5f0f21cc272c9eb2649dd5aef);
+            
+        
+
+        circle_marker_f487b54f57a09c5c7e3427bbdd32011d.bindPopup(popup_2a3f039b715fc900fa5d4099449a19a7)
+        ;
+
+        
+    
+    
+            var circle_marker_3530a55bd3dab12c791b4cddb6046b44 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_880b443b1e618dd1e9d840735b5b8f74 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_372f800ab7cea5588c9a4a0fd35ee50a = $(`<div id="html_372f800ab7cea5588c9a4a0fd35ee50a" style="width: 100.0%; height: 100.0%;">             Time: 130513s<br>             Heading: 2.5°<br>             Wind Direction: 105.0°<br>             Relative Wind: 102.5°<br>             Wind Speed: 0.96 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 114.0°<br>             Target Sail: 114.0°<br>             Status: OK             </div>`)[0];
+                popup_880b443b1e618dd1e9d840735b5b8f74.setContent(html_372f800ab7cea5588c9a4a0fd35ee50a);
+            
+        
+
+        circle_marker_3530a55bd3dab12c791b4cddb6046b44.bindPopup(popup_880b443b1e618dd1e9d840735b5b8f74)
+        ;
+
+        
+    
+    
+            var circle_marker_dee08704877a901073a1078f6cb3f509 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_bc4408f03d8ed09b40efdc72d60175e3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8532123a03618e5e3a8ee3ff877f48c = $(`<div id="html_d8532123a03618e5e3a8ee3ff877f48c" style="width: 100.0%; height: 100.0%;">             Time: 131545s<br>             Heading: 2.5°<br>             Wind Direction: 105.0°<br>             Relative Wind: 102.5°<br>             Wind Speed: 0.96 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 114.0°<br>             Target Sail: 114.0°<br>             Status: OK             </div>`)[0];
+                popup_bc4408f03d8ed09b40efdc72d60175e3.setContent(html_d8532123a03618e5e3a8ee3ff877f48c);
+            
+        
+
+        circle_marker_dee08704877a901073a1078f6cb3f509.bindPopup(popup_bc4408f03d8ed09b40efdc72d60175e3)
+        ;
+
+        
+    
+    
+            var circle_marker_880097b7e58d68de2364597964c55e84 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_747843e1b511a2bedeca9717829edcb6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_54e735c8bf44e2adeb667931f4f74e11 = $(`<div id="html_54e735c8bf44e2adeb667931f4f74e11" style="width: 100.0%; height: 100.0%;">             Time: 132583s<br>             Heading: 2.5°<br>             Wind Direction: 105.0°<br>             Relative Wind: 102.5°<br>             Wind Speed: 0.96 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 114.0°<br>             Target Sail: 114.0°<br>             Status: OK             </div>`)[0];
+                popup_747843e1b511a2bedeca9717829edcb6.setContent(html_54e735c8bf44e2adeb667931f4f74e11);
+            
+        
+
+        circle_marker_880097b7e58d68de2364597964c55e84.bindPopup(popup_747843e1b511a2bedeca9717829edcb6)
+        ;
+
+        
+    
+    
+            var circle_marker_c7cc2b4f238e12dbe08dd14c2078953d = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_7da7c6e3512b4fd85ae2eb949f98bfc7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d24c26962c6f8b88c5e03c3d1e9518a2 = $(`<div id="html_d24c26962c6f8b88c5e03c3d1e9518a2" style="width: 100.0%; height: 100.0%;">             Time: 133636s<br>             Heading: 2.5°<br>             Wind Direction: 105.0°<br>             Relative Wind: 102.5°<br>             Wind Speed: 0.96 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 114.0°<br>             Target Sail: 114.0°<br>             Status: OK             </div>`)[0];
+                popup_7da7c6e3512b4fd85ae2eb949f98bfc7.setContent(html_d24c26962c6f8b88c5e03c3d1e9518a2);
+            
+        
+
+        circle_marker_c7cc2b4f238e12dbe08dd14c2078953d.bindPopup(popup_7da7c6e3512b4fd85ae2eb949f98bfc7)
+        ;
+
+        
+    
+    
+            var circle_marker_9b89433cbf94066a78840c9e73d75ccd = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_de0302bb97dc686b9c431e6a5295c886 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_19bfdb0a906f8a10ff5f2c7c62e79584 = $(`<div id="html_19bfdb0a906f8a10ff5f2c7c62e79584" style="width: 100.0%; height: 100.0%;">             Time: 134667s<br>             Heading: 2.5°<br>             Wind Direction: 105.0°<br>             Relative Wind: 102.5°<br>             Wind Speed: 0.96 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 114.0°<br>             Target Sail: 114.0°<br>             Status: OK             </div>`)[0];
+                popup_de0302bb97dc686b9c431e6a5295c886.setContent(html_19bfdb0a906f8a10ff5f2c7c62e79584);
+            
+        
+
+        circle_marker_9b89433cbf94066a78840c9e73d75ccd.bindPopup(popup_de0302bb97dc686b9c431e6a5295c886)
+        ;
+
+        
+    
+    
+            var circle_marker_11d99c57f24642e61b5cec96e61370b3 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_854359a72e26eb77025a4ea1d07be666 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dc067257c98e2e170d568b201defa1d7 = $(`<div id="html_dc067257c98e2e170d568b201defa1d7" style="width: 100.0%; height: 100.0%;">             Time: 135700s<br>             Heading: 2.5°<br>             Wind Direction: 105.0°<br>             Relative Wind: 102.5°<br>             Wind Speed: 1.92 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 114.0°<br>             Target Sail: 114.0°<br>             Status: OK             </div>`)[0];
+                popup_854359a72e26eb77025a4ea1d07be666.setContent(html_dc067257c98e2e170d568b201defa1d7);
+            
+        
+
+        circle_marker_11d99c57f24642e61b5cec96e61370b3.bindPopup(popup_854359a72e26eb77025a4ea1d07be666)
+        ;
+
+        
+    
+    
+            var circle_marker_477119ec420b1944ced38854c0bb0e7a = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_2f63cbf6827b431c3d8f3f758cba2996 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b6005917c55b3fcd2eadeee9a6166829 = $(`<div id="html_b6005917c55b3fcd2eadeee9a6166829" style="width: 100.0%; height: 100.0%;">             Time: 136748s<br>             Heading: 3.1°<br>             Wind Direction: 105.0°<br>             Relative Wind: 101.9°<br>             Wind Speed: 1.92 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 112.0°<br>             Target Sail: 112.0°<br>             Status: OK             </div>`)[0];
+                popup_2f63cbf6827b431c3d8f3f758cba2996.setContent(html_b6005917c55b3fcd2eadeee9a6166829);
+            
+        
+
+        circle_marker_477119ec420b1944ced38854c0bb0e7a.bindPopup(popup_2f63cbf6827b431c3d8f3f758cba2996)
+        ;
+
+        
+    
+    
+            var circle_marker_d95bea120cfd4297063f218d9ddf53f4 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_4946d6e4d5656bfb5760fe9628b3ea65 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_84c4fd4cf5f2d8c887ba12f7e1ca716c = $(`<div id="html_84c4fd4cf5f2d8c887ba12f7e1ca716c" style="width: 100.0%; height: 100.0%;">             Time: 137783s<br>             Heading: 6.5°<br>             Wind Direction: 106.0°<br>             Relative Wind: 99.5°<br>             Wind Speed: 1.92 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 108.0°<br>             Target Sail: 108.0°<br>             Status: OK             </div>`)[0];
+                popup_4946d6e4d5656bfb5760fe9628b3ea65.setContent(html_84c4fd4cf5f2d8c887ba12f7e1ca716c);
+            
+        
+
+        circle_marker_d95bea120cfd4297063f218d9ddf53f4.bindPopup(popup_4946d6e4d5656bfb5760fe9628b3ea65)
+        ;
+
+        
+    
+    
+            var circle_marker_31b30afa44ec49550ab708668a010482 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_70b9ae9ed19f25cfcd8d1af2d44d188f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12ac30084eee70b2ae32a9b761c10d47 = $(`<div id="html_12ac30084eee70b2ae32a9b761c10d47" style="width: 100.0%; height: 100.0%;">             Time: 138853s<br>             Heading: 7.1°<br>             Wind Direction: 111.0°<br>             Relative Wind: 103.9°<br>             Wind Speed: 1.92 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 116.0°<br>             Target Sail: 116.0°<br>             Status: OK             </div>`)[0];
+                popup_70b9ae9ed19f25cfcd8d1af2d44d188f.setContent(html_12ac30084eee70b2ae32a9b761c10d47);
+            
+        
+
+        circle_marker_31b30afa44ec49550ab708668a010482.bindPopup(popup_70b9ae9ed19f25cfcd8d1af2d44d188f)
+        ;
+
+        
+    
+    
+            var circle_marker_7f4dadd283ea00dafa8584b66a1389c0 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_1727618ee1cda43e72aa717dfc57830a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a51b65fac95cc7a3bbd254511652e879 = $(`<div id="html_a51b65fac95cc7a3bbd254511652e879" style="width: 100.0%; height: 100.0%;">             Time: 139886s<br>             Heading: 9.8°<br>             Wind Direction: 131.0°<br>             Relative Wind: 121.2°<br>             Wind Speed: 1.92 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 152.0°<br>             Target Sail: 152.0°<br>             Status: OK             </div>`)[0];
+                popup_1727618ee1cda43e72aa717dfc57830a.setContent(html_a51b65fac95cc7a3bbd254511652e879);
+            
+        
+
+        circle_marker_7f4dadd283ea00dafa8584b66a1389c0.bindPopup(popup_1727618ee1cda43e72aa717dfc57830a)
+        ;
+
+        
+    
+    
+            var circle_marker_302e1cb83fc5aecbeda4cf63ddb0eca9 = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_62d6a389d13d37a7b6ed740c3a7a7583 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_726fb67171ff2f43fca5e022d54efe4f = $(`<div id="html_726fb67171ff2f43fca5e022d54efe4f" style="width: 100.0%; height: 100.0%;">             Time: 140919s<br>             Heading: 7.0°<br>             Wind Direction: 132.0°<br>             Relative Wind: 125.0°<br>             Wind Speed: 1.92 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 160.0°<br>             Target Sail: 160.0°<br>             Status: OK             </div>`)[0];
+                popup_62d6a389d13d37a7b6ed740c3a7a7583.setContent(html_726fb67171ff2f43fca5e022d54efe4f);
+            
+        
+
+        circle_marker_302e1cb83fc5aecbeda4cf63ddb0eca9.bindPopup(popup_62d6a389d13d37a7b6ed740c3a7a7583)
+        ;
+
+        
+    
+    
+            var circle_marker_75d212c21d4e321ba318e92f6ae425bb = L.circleMarker(
+                [52.484046, -1.889295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_88aa5483d3b378330f67bae01d16a762);
+        
+    
+        var popup_76f5d9178de983815833be0f50f0c50e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_70e176643905141c8f1748a8c916d8fa = $(`<div id="html_70e176643905141c8f1748a8c916d8fa" style="width: 100.0%; height: 100.0%;">             Time: 141955s<br>             Heading: 1.0°<br>             Wind Direction: 134.0°<br>             Relative Wind: 133.0°<br>             Wind Speed: 1.92 mph<br>             GPS Status: 7<br>             GPS Speed: 0.0 m/s<br>             GPS Course: 280.24°<br>             Rudder: 45.0°<br>             Sail: 176.0°<br>             Target Sail: 176.0°<br>             Status: OK             </div>`)[0];
+                popup_76f5d9178de983815833be0f50f0c50e.setContent(html_70e176643905141c8f1748a8c916d8fa);
+            
+        
+
+        circle_marker_75d212c21d4e321ba318e92f6ae425bb.bindPopup(popup_76f5d9178de983815833be0f50f0c50e)
+        ;
+
+        
+    
+</script>
+</html>
